@@ -18,7 +18,7 @@
 		0A59509B197C370C00B9F60D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A59509A197C370C00B9F60D /* XCTest.framework */; };
 		0A59509C197C370C00B9F60D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A595078197C370B00B9F60D /* Cocoa.framework */; };
 		0A5950A4197C370C00B9F60D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0A5950A2197C370C00B9F60D /* InfoPlist.strings */; };
-		0A5950A6197C370C00B9F60D /* AnkhReaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A5950A5197C370C00B9F60D /* AnkhReaderTests.m */; };
+		859295A3066B427A83AC8650 /* libPods-AnkhReaderTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21C8C4FB766A48C09D5DA8C2 /* libPods-AnkhReaderTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,7 +51,8 @@
 		0A59509A197C370C00B9F60D /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		0A5950A1197C370C00B9F60D /* AnkhReaderTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AnkhReaderTests-Info.plist"; sourceTree = "<group>"; };
 		0A5950A3197C370C00B9F60D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		0A5950A5197C370C00B9F60D /* AnkhReaderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnkhReaderTests.m; sourceTree = "<group>"; };
+		21C8C4FB766A48C09D5DA8C2 /* libPods-AnkhReaderTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AnkhReaderTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4CB68AF673C42F6BC57ADF4 /* Pods-AnkhReaderTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnkhReaderTests.xcconfig"; path = "Pods/Pods-AnkhReaderTests.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +70,7 @@
 			files = (
 				0A59509C197C370C00B9F60D /* Cocoa.framework in Frameworks */,
 				0A59509B197C370C00B9F60D /* XCTest.framework in Frameworks */,
+				859295A3066B427A83AC8650 /* libPods-AnkhReaderTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +84,7 @@
 				0A59509F197C370C00B9F60D /* AnkhReaderTests */,
 				0A595077197C370B00B9F60D /* Frameworks */,
 				0A595076197C370B00B9F60D /* Products */,
+				D4CB68AF673C42F6BC57ADF4 /* Pods-AnkhReaderTests.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,6 +103,7 @@
 				0A595078197C370B00B9F60D /* Cocoa.framework */,
 				0A59509A197C370C00B9F60D /* XCTest.framework */,
 				0A59507A197C370B00B9F60D /* Other Frameworks */,
+				21C8C4FB766A48C09D5DA8C2 /* libPods-AnkhReaderTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -142,7 +146,7 @@
 		0A59509F197C370C00B9F60D /* AnkhReaderTests */ = {
 			isa = PBXGroup;
 			children = (
-				0A5950A5197C370C00B9F60D /* AnkhReaderTests.m */,
+				0A5950C4197C42C400B9F60D /* AZRAPILayerSpec.m */,
 				0A5950A0197C370C00B9F60D /* Supporting Files */,
 			);
 			path = AnkhReaderTests;
@@ -181,9 +185,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0A5950AC197C370C00B9F60D /* Build configuration list for PBXNativeTarget "AnkhReaderTests" */;
 			buildPhases = (
+				DAC7DC4AF97C46DE83D80090 /* Check Pods Manifest.lock */,
 				0A595095197C370C00B9F60D /* Sources */,
 				0A595096197C370C00B9F60D /* Frameworks */,
 				0A595097197C370C00B9F60D /* Resources */,
+				CC8F89D04CAE4B2D8BAE1188 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -251,6 +257,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		CC8F89D04CAE4B2D8BAE1188 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-AnkhReaderTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DAC7DC4AF97C46DE83D80090 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0A595071197C370B00B9F60D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -266,7 +305,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A5950A6197C370C00B9F60D /* AnkhReaderTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,6 +450,7 @@
 		};
 		0A5950AD197C370C00B9F60D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D4CB68AF673C42F6BC57ADF4 /* Pods-AnkhReaderTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AnkhReader.app/Contents/MacOS/AnkhReader";
 				COMBINE_HIDPI_IMAGES = YES;
@@ -434,6 +473,7 @@
 		};
 		0A5950AE197C370C00B9F60D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D4CB68AF673C42F6BC57ADF4 /* Pods-AnkhReaderTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AnkhReader.app/Contents/MacOS/AnkhReader";
 				COMBINE_HIDPI_IMAGES = YES;
@@ -469,6 +509,7 @@
 				0A5950AB197C370C00B9F60D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0A5950AC197C370C00B9F60D /* Build configuration list for PBXNativeTarget "AnkhReaderTests" */ = {
 			isa = XCConfigurationList;
@@ -477,6 +518,7 @@
 				0A5950AE197C370C00B9F60D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
