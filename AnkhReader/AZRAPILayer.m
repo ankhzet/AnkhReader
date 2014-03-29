@@ -7,14 +7,25 @@
 //
 
 #import "AZRAPILayer.h"
-#import "AZRAPIAction.h"
+#import "AZAPIProvider.h"
+#import "AZHTTPRequest.h"
 
 @implementation AZRAPILayer
 
-- (AZRAPIAction *) action:(NSString *)actionName {
-	AZRAPIAction *action = [AZRAPIAction actionWithName:actionName];
+- (id) action:(NSString *)actionName {
+	return [AZHTTPRequest actionWithName:actionName];
+}
 
-	return action;
++ (void) onMain:(dispatch_block_t)block synk:(BOOL)synk {
+	dispatch_queue_t main = dispatch_get_main_queue();
+  if (dispatch_get_current_queue() == main)
+		block();
+	else
+		synk ? dispatch_sync(main, block) : dispatch_async(main, block);
+}
+
+- (AZHTTPRequest *) queue:(AZHTTPRequest *)request withType:(AZAPIRequestType)type {
+	return [self.apiProvider queueRequest:request withType:type forAPI:self];
 }
 
 @end

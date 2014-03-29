@@ -11,14 +11,7 @@
 #import "AZSynkEnabledStorage.h"
 #import "AZDataProxyContainer.h"
 
-#import "AZREntitiesRegistry.h"
-
-#import "AZRTabsGroup.h"
-#import "AZRUpdatesTab.h"
-#import "AZRVersionsTab.h"
-
-NSString *tabUpdates = @"updates";
-NSString *tabVersions = @"versions";
+#import "AZRTabsCommons.h"
 
 @interface AZRAppDelegate () {
 	AZRTabsGroup *tabs;
@@ -33,6 +26,7 @@ NSString *tabVersions = @"versions";
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
 
 	tabs = [[AZRTabsGroup alloc] initWithTabView:self.tvTabs];
+	[tabs registerTab:[AZRLoginTab class]];
 	[tabs registerTab:[AZRUpdatesTab class]];
 	[tabs registerTab:[AZRVersionsTab class]];
 
@@ -45,14 +39,14 @@ NSString *tabVersions = @"versions";
 	[storage subscribeForUpdateNotifications:self selector:@selector(synkNotification:)];
 	[storage synkToggled];
 
-	[self showUpdates:nil];
+	[tabs navigateTo:AZRUIDLoginTab withNavData:nil];
 }
 
 - (void) synkNotification:(NSNotification *)notification {
 }
 
 - (IBAction)showUpdates:(id)sender {
-	[tabs navigateTo:tabUpdates withNavData:nil];
+	[tabs navigateTo:AZRUIDUpdatesTab withNavData:nil];
 }
 
 // Performs the save action for the application, which is to send the save: message to the application's managed object context. Any encountered errors are presented to the user.

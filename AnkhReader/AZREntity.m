@@ -26,7 +26,19 @@
 }
 
 + (instancetype) entity:(NSNumber *)uid fromJSON:(NSDictionary *)json inRegistry:(AZREntitiesRegistry *)registry {
-	return [self newEntity:uid inRegistry:registry];
+	AZREntity *entity = [registry hasEntity:uid withType:[self type]];
+
+	if (!entity)
+		entity = [self newEntity:uid inRegistry:registry];
+
+	if (json)
+		[entity aquireDataFromJSON:json inRegistry:registry];
+
+	return entity;
+}
+
+- (void) aquireDataFromJSON:(NSDictionary *)json inRegistry:(AZREntitiesRegistry *)registry {
+
 }
 
 @end

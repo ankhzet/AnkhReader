@@ -43,25 +43,17 @@
 	return UpdateTypeIdentifier;
 }
 
-+ (instancetype) entity:(NSNumber *)uid fromJSON:(NSDictionary *)json inRegistry:(AZREntitiesRegistry *)registry {
-	AZRUpdate *update = [registry hasEntity:uid withType:[self type]];
-	if (update)
-		return update;
+- (void) aquireDataFromJSON:(NSDictionary *)json inRegistry:(AZREntitiesRegistry *)registry {
+	ASSIGN_IF_NOTNULL(self.author, REGISTERED_ENTITY(AZRAuthor, registry, json, @"authorID"));
+	ASSIGN_IF_NOTNULL(self.group, REGISTERED_ENTITY(AZRGroup, registry, json, @"groupID"));
+	ASSIGN_IF_NOTNULL(self.page, REGISTERED_ENTITY(AZRPage, registry, json, @"pageID"));
 
-	update = [self newEntity:uid inRegistry:registry];
-
-	update.kind = [json objectForKey:@"kind"];
-
-	update.author = [registry hasEntity:[json objectForKey:@"authorID"] withType:[AZRAuthor type]];
-	update.group = [registry hasEntity:[json objectForKey:@"groupID"] withType:[AZRGroup type]];
-	update.page = [registry hasEntity:[json objectForKey:@"pageID"] withType:[AZRPage type]];
+	ASSIGN_IF_NOTNULL(self.kind, [json objectForKey:@"kind"]);
 
 	NSDictionary *desc = [json objectForKey:@"description"];
-	update.size = [desc objectForKey:@"size"];
-	update.delta = [desc objectForKey:@"delta"];
-	update.pub = [desc objectForKey:@"pubdate"];
-
-	return update;
+	ASSIGN_IF_NOTNULL(self.size, [desc objectForKey:@"size"]);
+	ASSIGN_IF_NOTNULL(self.delta, [desc objectForKey:@"delta"]);
+	ASSIGN_IF_NOTNULL(self.pub, [desc objectForKey:@"pubdate"]);
 }
 
 - (BOOL) isNew {
@@ -72,5 +64,45 @@
 	return ![self.size integerValue];
 }
 
++ (NSDictionary *) fetchUpdates:(NSArray *)updates inRegistry:(AZREntitiesRegistry *)registry {
+	NSMutableDictionary *authorsToLoad = [NSMutableDictionary dictionary];
+	NSMutableDictionary *groupsToLoad = [NSMutableDictionary dictionary];
+	NSMutableDictionary *pagesToLoad = [NSMutableDictionary dictionary];
+	for (NSDictionary *updateJSON in updates) {
+		NSNumber *authorID = [updateJSON objectForKey:@"authorID"];
+		NSNumber *groupID = [updateJSON objectForKey:@"groupID"];
+		NSNumber *pageID = [updateJSON objectForKey:@"pageID"];
+
+		AZRAuthor *author = [registry hasEntity:authorID withType:[AZRAuthor type]];
+		if (!author) authorsToLoad[authorID] = updateJSON;
+
+		AZRGroup *group = [registry hasEntity:groupID withType:[AZRGroup type]];
+		if (!group) groupsToLoad[groupID] = updateJSON;
+
+		AZRPage *page = [registry hasEntity:pageID withType:[AZRPage type]];
+		if (!page) pagesToLoad[pageID] = updateJSON;
+
+	}
+
+	for (NSNumber *authorID in [authorsToLoad allKeys])
+    [registry registerEntity:[AZRAuthor entity:authorID fromJSON:authorsToLoad[authorID] inRegistry:registry]];
+
+	for (NSNumber *groupID in [groupsToLoad allKeys])
+    [registry registerEntity:[AZRGroup entity:groupID fromJSON:groupsToLoad[groupID] inRegistry:registry]];
+
+	for (NSNumber *pageID in [pagesToLoad allKeys])
+    [registry registerEntity:[AZRPage entity:pageID fromJSON:pagesToLoad[pageID] inRegistry:registry]];
+
+	NSMutableDictionary *allData = [NSMutableDictionary dictionaryWithCapacity:[updates count]];
+	for (NSDictionary *updateJSON in updates) {
+		AZRUpdate *update = [AZRUpdate entity:[updateJSON objectForKey:@"uid"] fromJSON:updateJSON inRegistry:registry];
+		allData[update.uid] = update;
+	}
+	return allData;
+}
+
+- (NSString *) description {
+	return [NSString stringWithFormat:@"{Update@%@: %@ (%@), %@, %@ from %@ }", self.size, self.delta, self.uid, self.author, self.page, self.group];
+}
 
 @end

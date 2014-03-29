@@ -53,4 +53,13 @@
 	return registry[entityType];
 }
 
++ (id) hasEntity:(NSNumber *)uid withType:(NSString *)type {
+	return [[self getInstance] hasEntity:uid withType:type];
+}
+
++ (NSDictionary *) entitiesOfType:(NSString *)entityType {
+	return [[self getInstance] entitiesOfType:entityType];
+}
+
+
 @end

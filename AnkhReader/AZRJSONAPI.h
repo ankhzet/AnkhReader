@@ -1,13 +1,14 @@
 //
-//  AZRAuthorsAction.m
+//  AZRJSONAPI.h
 //  AnkhReader
 //
 //  Created by Ankh on 28.03.14.
 //  Copyright (c) 2014 Ankh. All rights reserved.
 //
 
-#import "AZRAuthorsLayer.h"
+#import "AZRAPILayer.h"
+#import "AZJSONRequest.h"
 
-@implementation AZRAuthorsLayer
+@interface AZRJSONAPI : AZRAPILayer
 
 @end

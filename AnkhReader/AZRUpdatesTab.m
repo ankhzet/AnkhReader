@@ -12,23 +12,34 @@
 #import "AZRAuthorsDataSource.h"
 #import "AZRUpdatesDataSource.h"
 
-#import "AZRAPILayer.h"
-#import "AZRAPIAction.h"
+#import "AZJSONRequest.h"
 
-#import "AZREntitiesRegistry.h"
+#import "AZREntities.h"
 
-#import "AZRUpdate.h"
-#import "AZRPage.h"
-#import "AZRAuthor.h"
+#import "AZAPIProvider.h"
+#import "AZRAuthorsAPI.h"
+#import "AZRUpdatesAPI.h"
 
 @interface AZRUpdatesTab () <AZRAuthorsTableDelegate, AZRUpdatesDataSourceDelegate> {
 	AZRAuthorsDataSource *authors;
 	AZRUpdatesDataSource *updates;
+
+	AZRAuthorsAPI *authorsAPI;
+	AZRUpdatesAPI *updatesAPI;
 }
 
 @end
 
 @implementation AZRUpdatesTab
+
+- (id)init {
+	if (!(self = [super init]))
+		return self;
+
+	authorsAPI = [[AZAPIProvider getInstance] API:[AZRAuthorsAPI class]];
+	updatesAPI = [[AZAPIProvider getInstance] API:[AZRUpdatesAPI class]];
+	return self;
+}
 
 - (NSString *) tabIdentifier {
 	return AZRUIDUpdatesTab;
@@ -37,6 +48,7 @@
 - (void) show {
 	if (!updates) {
 		updates = [AZRUpdatesDataSource new];
+		updates.groupped = YES;
 		[updates setDelegate:self];
 		[self.outlineView setDataSource:updates];
 		[self.outlineView setDelegate:updates];
@@ -52,65 +64,35 @@
 }
 
 - (void) retriveAuthorsList {
-	NSDictionary *regAuthors = [[AZREntitiesRegistry getInstance] entitiesOfType:[AZRAuthor type]];
-	if (regAuthors.count) {
-		authors.data = regAuthors;
-		[self.authorsTableView reloadData];
-		[self retriveUpdates];
+	[authorsAPI aquireAuthors:@{@"collumns": @"id,fio,link,time"} withCompletion:^(NSDictionary *_authors) {
+		if (authors.data == _authors)
+			return;
 
-		return;
-	}
+		authors.data = _authors;
 
-
-	AZRAPIAction *authorAction = [[AZRAPILayer new] action:@"authors"];
-	[authorAction setParameters:@{@"collumns": @"id,fio,link,time"}];
-
-	[[[authorAction
-		 error:^(AZRAPIAction *action, NSString *error) {
-			 NSLog(@"Authors not aquired: %@", error);
-			 [action execute];
-		 }] success:^(AZRAPIAction *action, id data) {
-			 dispatch_async(dispatch_get_main_queue(), ^{
-				 authors.data = [AZRAuthor authorsFromJSON:data inRegistry:[AZREntitiesRegistry getInstance]];
-				 [self.authorsTableView reloadData];
-
-				 [self retriveUpdates];
-			 });
-		 }] execute];
+		[AZRAPILayer onMain:^{
+			[self.authorsTableView reloadData];
+			[self retriveUpdates];
+		} synk:NO];
+	}];
 }
 
 - (void) retriveUpdates {
 	[updates filterByAuthor:nil];
 
-	NSDictionary *regUpdates = [[AZREntitiesRegistry getInstance] entitiesOfType:[AZRUpdate type]];
-	if (regUpdates.count) {
-		updates.data = regUpdates;
-		[self.outlineView reloadData];
-		[self.outlineView expandItem:nil expandChildren:YES];
+	[updatesAPI aquireUpdates:@{@"newer-than":@(24 * 30),@"collumns": @"uid,kind,pageID,authorID,groupID,title,group,description,size,delta,pubdate"} withCompletion:^(NSDictionary *_updates) {
+		if (updates.data == _updates)
+			return;
+
+		updates.data = _updates;
 		[authors rearrangeBy:AUTHOR_UPDATES_COLLUMN];
-		[self.authorsTableView reloadData];
 
-		return;
-	}
-
-	AZRAPIAction *updatesAction = [[AZRAPILayer new] action:@"updates"];
-	[updatesAction setParameters:@{@"collumns": @"uid,kind,pageID,authorID,groupID,title,group,description,size,delta,pubdate"}];
-
-	[[[updatesAction
-		 error:^(AZRAPIAction *action, NSString *error) {
-			 NSLog(@"Updates not aquired: %@", error);
-			 //			 [action execute];
-		 }] success:^(AZRAPIAction *action, id data) {
-			 dispatch_async(dispatch_get_main_queue(), ^{
-				 [updates fetchUpdates:data inRegistry:[AZREntitiesRegistry getInstance]];
-				 [self.outlineView reloadData];
-				 [self.outlineView expandItem:nil expandChildren:YES];
-
-				 [authors rearrangeBy:AUTHOR_UPDATES_COLLUMN];
-				 [self.authorsTableView reloadData];
-
-			 });
-		 }] execute];
+		[AZRAPILayer onMain:^{
+			[self.outlineView reloadData];
+			[self.outlineView expandItem:nil expandChildren:YES];
+			[self.authorsTableView reloadData];
+		} synk:NO];
+	}];
 }
 
 - (void) objectSelected:(id)object {

@@ -1,13 +1,13 @@
 //
-//  AZRLoginAction.h
+//  AZHTMLRequest.h
 //  AnkhReader
 //
 //  Created by Ankh on 28.03.14.
 //  Copyright (c) 2014 Ankh. All rights reserved.
 //
 
-#import "AZRAPILayer.h"
+#import "AZHTTPRequest.h"
 
-@interface AZRUserLayer : AZRAPILayer
+@interface AZHTMLRequest : AZHTTPRequest
 
 @end

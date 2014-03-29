@@ -16,7 +16,20 @@
 #pragma mark - Common utils
 
 + (void) notifyErrorMsg:(NSString *)error {
+	NSString *okButton = NSLocalizedString(@"Ok", @"Ok button title");
+	NSAlert *alert = [[NSAlert alloc] init];
+	[alert setMessageText:@"Error"];
+	[alert setInformativeText:error];
+	[alert addButtonWithTitle:okButton];
+
 	NSLog(@"ERR: %@", error);
+	dispatch_async(dispatch_get_main_queue(), ^{
+		NSInteger answer = [alert runModal];
+
+		if (answer == NSAlertAlternateReturn) {
+		}
+	});
+
 }
 
 // Returns the URL to the application's Documents directory.

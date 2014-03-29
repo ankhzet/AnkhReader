@@ -18,4 +18,7 @@
 - (id) hasEntity:(NSNumber *)uid withType:(NSString *)type;
 - (NSDictionary *) entitiesOfType:(NSString *)entityType;
 
++ (id) hasEntity:(NSNumber *)uid withType:(NSString *)type;
++ (NSDictionary *) entitiesOfType:(NSString *)entityType;
+
 @end

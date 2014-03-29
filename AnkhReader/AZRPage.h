@@ -15,10 +15,17 @@
 @property (nonatomic, weak) AZRGroup *group;
 
 @property (nonatomic) NSString *title;
-@property (nonatomic) NSString *description;
+@property (nonatomic) NSString *link;
+@property (nonatomic) NSString *descr;
 @property (nonatomic) NSUInteger updated;
 @property (nonatomic) NSUInteger size;
+@property (nonatomic) BOOL detailsLoaded;
 
 @property (nonatomic) NSMutableDictionary *updates;
+@property (nonatomic) NSMutableDictionary *versions;
+
+
++ (NSDictionary *) pagesFromJSON:(NSArray *)json inRegistry:(AZREntitiesRegistry *)registry;
+
 
 @end

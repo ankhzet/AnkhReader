@@ -1,13 +1,13 @@
 //
-//  AZRAuthorsAction.h
+//  AZJSONRequest.h
 //  AnkhReader
 //
 //  Created by Ankh on 28.03.14.
 //  Copyright (c) 2014 Ankh. All rights reserved.
 //
 
-#import "AZRAPILayer.h"
+#import "AZHTTPRequest.h"
 
-@interface AZRAuthorsLayer : AZRAPILayer
+@interface AZJSONRequest : AZHTTPRequest
 
 @end

@@ -41,7 +41,7 @@
 	[[NSBundle mainBundle] loadNibNamed:nibName owner:self topLevelObjects:nil];
 
 	if (!self.view)
-		[NSException raise:@"AZRTabProviderViewLoadError" format:@"Did you forget to create tab's view?"];
+		[NSException raise:@"AZRTabProviderViewLoadError" format:@"Did you forget to create tab's view named \"%@.xib\" or set its file owner to this tab class?",nibName];
 
 	return !!self.view;
 }
@@ -53,6 +53,7 @@
 	NSView *viewInTab = [tab view];
 	[viewInTab setSubviews:@[self.view]];
 	[self.view setFrameSize:tabView.frame.size];
+	self.view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
 	self.navData = data;
 	[self show];
 }

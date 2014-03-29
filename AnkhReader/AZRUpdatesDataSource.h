@@ -21,7 +21,6 @@
 
 @property (nonatomic) BOOL groupped;
 
-- (void) fetchUpdates:(NSArray *)updates inRegistry:(AZREntitiesRegistry *)registry;
 - (void) filterByAuthor:(NSNumber *)authorID;
 
 @end

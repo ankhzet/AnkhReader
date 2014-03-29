@@ -83,43 +83,6 @@
 	filter = baseAuthors != authorGroups;
 }
 
-- (void) fetchUpdates:(NSArray *)updates inRegistry:(AZREntitiesRegistry *)registry {
-	NSMutableDictionary *authorsToLoad = [NSMutableDictionary dictionary];
-	NSMutableDictionary *groupsToLoad = [NSMutableDictionary dictionary];
-	NSMutableDictionary *pagesToLoad = [NSMutableDictionary dictionary];
-	for (NSDictionary *updateJSON in updates) {
-		NSNumber *authorID = [updateJSON objectForKey:@"authorID"];
-		NSNumber *groupID = [updateJSON objectForKey:@"groupID"];
-		NSNumber *pageID = [updateJSON objectForKey:@"pageID"];
-
-		AZRAuthor *author = [registry hasEntity:authorID withType:[AZRAuthor type]];
-		if (!author) authorsToLoad[authorID] = updateJSON;
-
-		AZRGroup *group = [registry hasEntity:groupID withType:[AZRGroup type]];
-		if (!group) groupsToLoad[groupID] = updateJSON;
-
-		AZRPage *page = [registry hasEntity:pageID withType:[AZRPage type]];
-		if (!page) pagesToLoad[pageID] = updateJSON;
-
-	}
-
-	for (NSNumber *authorID in [authorsToLoad allKeys])
-    [registry registerEntity:[AZRAuthor entity:authorID fromJSON:authorsToLoad[authorID] inRegistry:registry]];
-
-	for (NSNumber *groupID in [groupsToLoad allKeys])
-    [registry registerEntity:[AZRGroup entity:groupID fromJSON:groupsToLoad[groupID] inRegistry:registry]];
-
-	for (NSNumber *pageID in [pagesToLoad allKeys])
-    [registry registerEntity:[AZRPage entity:pageID fromJSON:pagesToLoad[pageID] inRegistry:registry]];
-
-	NSMutableDictionary *allData = [NSMutableDictionary dictionaryWithCapacity:[updates count]];
-	for (NSDictionary *updateJSON in updates) {
-		AZRUpdate *update = [AZRUpdate entity:[updateJSON objectForKey:@"uid"] fromJSON:updateJSON inRegistry:registry];
-		allData[update.uid] = update;
-	}
-	self.data = allData;
-}
-
 - (void) setData:(NSDictionary *)data {
 	_data = data;
 

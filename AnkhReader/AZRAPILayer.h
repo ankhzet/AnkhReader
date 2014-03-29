@@ -7,10 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AZHTTPRequest.h"
 
-@class AZRAPIAction;
+@class AZAPIProvider;
+
 @interface AZRAPILayer : NSObject
+@property (nonatomic, weak) AZAPIProvider *apiProvider;
 
-- (AZRAPIAction *) action:(NSString *)actionName;
++ (void) onMain:(dispatch_block_t)block synk:(BOOL)synk;
+
+- (id) action:(NSString *)actionName;
+- (AZHTTPRequest *) queue:(AZHTTPRequest *)request withType:(AZAPIRequestType)type;
 
 @end

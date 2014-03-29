@@ -32,7 +32,6 @@
 		0A5950BE197C391000B9F60D /* AZUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A5950BD197C391000B9F60D /* AZUtils.m */; };
 		0A5950C1197C428C00B9F60D /* AZRAPILayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A5950C0197C428C00B9F60D /* AZRAPILayer.m */; };
 		0A5950C5197C42C400B9F60D /* AZRAPILayerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A5950C4197C42C400B9F60D /* AZRAPILayerSpec.m */; };
-		0A5950C9197C438600B9F60D /* AZRAPIAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A5950C8197C438600B9F60D /* AZRAPIAction.m */; };
 		0A5950CC197C946900B9F60D /* AZRAuthorsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A5950CB197C946900B9F60D /* AZRAuthorsDataSource.m */; };
 		0A5950CF197CA22700B9F60D /* AZRAuthorTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A5950CE197CA22700B9F60D /* AZRAuthorTableCellView.m */; };
 		0A5950D4197CD9A400B9F60D /* AZRAuthor.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A5950D3197CD9A400B9F60D /* AZRAuthor.m */; };
@@ -44,11 +43,24 @@
 		0A7A8677197D5E8C00E80B98 /* AZREntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7A8676197D5E8C00E80B98 /* AZREntity.m */; };
 		0A7A867B197D644B00E80B98 /* AZRPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7A867A197D644B00E80B98 /* AZRPage.m */; };
 		0A7A867E197D647B00E80B98 /* AZRGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7A867D197D647B00E80B98 /* AZRGroup.m */; };
-		0AAF340018E5E73300424B4C /* AZRUserLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAF33FF18E5E73300424B4C /* AZRUserLayer.m */; };
-		0AAF340318E5E74500424B4C /* AZRAuthorsLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAF340218E5E74500424B4C /* AZRAuthorsLayer.m */; };
+		0AAF340018E5E73300424B4C /* AZRUserAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAF33FF18E5E73300424B4C /* AZRUserAPI.m */; };
+		0AAF340318E5E74500424B4C /* AZRAuthorsAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAF340218E5E74500424B4C /* AZRAuthorsAPI.m */; };
 		0AAF340618E5EA6C00424B4C /* AZHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAF340518E5EA6C00424B4C /* AZHTTPRequest.m */; };
 		0AAF340918E5EA8D00424B4C /* NSURL+AnkhUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAF340818E5EA8D00424B4C /* NSURL+AnkhUtils.m */; };
 		0AAF340C18E5EB0E00424B4C /* NSArray+AnkhUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAF340B18E5EB0E00424B4C /* NSArray+AnkhUtils.m */; };
+		0AAF340F18E5F03A00424B4C /* AZJSONRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAF340E18E5F03A00424B4C /* AZJSONRequest.m */; };
+		0AAF341218E5F06900424B4C /* AZHTMLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAF341118E5F06900424B4C /* AZHTMLRequest.m */; };
+		0AAF341618E5F3D400424B4C /* AZRJSONAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAF341518E5F3D400424B4C /* AZRJSONAPI.m */; };
+		0AAF341918E5F84800424B4C /* AZRLoginTab.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAF341818E5F84800424B4C /* AZRLoginTab.m */; };
+		0AAF341B18E5F86500424B4C /* tabLogin.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AAF341A18E5F86500424B4C /* tabLogin.xib */; };
+		0AAF341E18E5FF0D00424B4C /* AZAPIProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAF341D18E5FF0D00424B4C /* AZAPIProvider.m */; };
+		0AAF342118E604AD00424B4C /* AZRUpdatesAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAF342018E604AD00424B4C /* AZRUpdatesAPI.m */; };
+		0AAF342418E61ECC00424B4C /* AZRUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAF342318E61ECC00424B4C /* AZRUser.m */; };
+		0AAF342718E697E700424B4C /* AZRPagesAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAF342618E697E700424B4C /* AZRPagesAPI.m */; };
+		0AAF342B18E6A43D00424B4C /* AZRPageVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAF342A18E6A43D00424B4C /* AZRPageVersion.m */; };
+		0AAF342E18E6AC9B00424B4C /* AZRVersionsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAF342D18E6AC9B00424B4C /* AZRVersionsDataSource.m */; };
+		0AAF343118E6B17600424B4C /* AZRVersionCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAF343018E6B17600424B4C /* AZRVersionCellView.m */; };
+		0AAF343318E6EA9C00424B4C /* tabPreferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AAF343218E6EA9C00424B4C /* tabPreferences.xib */; };
 		0AF1C0D0197DE7B600798532 /* AZRGroupTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AF1C0CF197DE7B600798532 /* AZRGroupTableCellView.m */; };
 		0AFC9E2518E220520050C53F /* tabVersions.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AFC9E2418E220520050C53F /* tabVersions.xib */; };
 		0AFC9E2818E357BB0050C53F /* NSColor+AnkhColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFC9E2718E357BB0050C53F /* NSColor+AnkhColors.m */; };
@@ -111,8 +123,6 @@
 		0A5950BF197C428C00B9F60D /* AZRAPILayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRAPILayer.h; sourceTree = "<group>"; };
 		0A5950C0197C428C00B9F60D /* AZRAPILayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRAPILayer.m; sourceTree = "<group>"; };
 		0A5950C4197C42C400B9F60D /* AZRAPILayerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRAPILayerSpec.m; sourceTree = "<group>"; };
-		0A5950C7197C438600B9F60D /* AZRAPIAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRAPIAction.h; sourceTree = "<group>"; };
-		0A5950C8197C438600B9F60D /* AZRAPIAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRAPIAction.m; sourceTree = "<group>"; };
 		0A5950CA197C946900B9F60D /* AZRAuthorsDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRAuthorsDataSource.h; sourceTree = "<group>"; };
 		0A5950CB197C946900B9F60D /* AZRAuthorsDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRAuthorsDataSource.m; sourceTree = "<group>"; };
 		0A5950CD197CA22700B9F60D /* AZRAuthorTableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRAuthorTableCellView.h; sourceTree = "<group>"; };
@@ -135,16 +145,41 @@
 		0A7A867A197D644B00E80B98 /* AZRPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRPage.m; sourceTree = "<group>"; };
 		0A7A867C197D647B00E80B98 /* AZRGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRGroup.h; sourceTree = "<group>"; };
 		0A7A867D197D647B00E80B98 /* AZRGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRGroup.m; sourceTree = "<group>"; };
-		0AAF33FE18E5E73300424B4C /* AZRUserLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRUserLayer.h; sourceTree = "<group>"; };
-		0AAF33FF18E5E73300424B4C /* AZRUserLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRUserLayer.m; sourceTree = "<group>"; };
-		0AAF340118E5E74500424B4C /* AZRAuthorsLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRAuthorsLayer.h; sourceTree = "<group>"; };
-		0AAF340218E5E74500424B4C /* AZRAuthorsLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRAuthorsLayer.m; sourceTree = "<group>"; };
+		0AAF33FE18E5E73300424B4C /* AZRUserAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRUserAPI.h; sourceTree = "<group>"; };
+		0AAF33FF18E5E73300424B4C /* AZRUserAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRUserAPI.m; sourceTree = "<group>"; };
+		0AAF340118E5E74500424B4C /* AZRAuthorsAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRAuthorsAPI.h; sourceTree = "<group>"; };
+		0AAF340218E5E74500424B4C /* AZRAuthorsAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRAuthorsAPI.m; sourceTree = "<group>"; };
 		0AAF340418E5EA6C00424B4C /* AZHTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZHTTPRequest.h; sourceTree = "<group>"; };
 		0AAF340518E5EA6C00424B4C /* AZHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZHTTPRequest.m; sourceTree = "<group>"; };
 		0AAF340718E5EA8D00424B4C /* NSURL+AnkhUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+AnkhUtils.h"; sourceTree = "<group>"; };
 		0AAF340818E5EA8D00424B4C /* NSURL+AnkhUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+AnkhUtils.m"; sourceTree = "<group>"; };
 		0AAF340A18E5EB0E00424B4C /* NSArray+AnkhUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+AnkhUtils.h"; sourceTree = "<group>"; };
 		0AAF340B18E5EB0E00424B4C /* NSArray+AnkhUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+AnkhUtils.m"; sourceTree = "<group>"; };
+		0AAF340D18E5F03A00424B4C /* AZJSONRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZJSONRequest.h; sourceTree = "<group>"; };
+		0AAF340E18E5F03A00424B4C /* AZJSONRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZJSONRequest.m; sourceTree = "<group>"; };
+		0AAF341018E5F06900424B4C /* AZHTMLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZHTMLRequest.h; sourceTree = "<group>"; };
+		0AAF341118E5F06900424B4C /* AZHTMLRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZHTMLRequest.m; sourceTree = "<group>"; };
+		0AAF341418E5F3D400424B4C /* AZRJSONAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRJSONAPI.h; sourceTree = "<group>"; };
+		0AAF341518E5F3D400424B4C /* AZRJSONAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRJSONAPI.m; sourceTree = "<group>"; };
+		0AAF341718E5F84800424B4C /* AZRLoginTab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRLoginTab.h; sourceTree = "<group>"; };
+		0AAF341818E5F84800424B4C /* AZRLoginTab.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRLoginTab.m; sourceTree = "<group>"; };
+		0AAF341A18E5F86500424B4C /* tabLogin.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = tabLogin.xib; sourceTree = "<group>"; };
+		0AAF341C18E5FF0D00424B4C /* AZAPIProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZAPIProvider.h; sourceTree = "<group>"; };
+		0AAF341D18E5FF0D00424B4C /* AZAPIProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZAPIProvider.m; sourceTree = "<group>"; };
+		0AAF341F18E604AD00424B4C /* AZRUpdatesAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRUpdatesAPI.h; sourceTree = "<group>"; };
+		0AAF342018E604AD00424B4C /* AZRUpdatesAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRUpdatesAPI.m; sourceTree = "<group>"; };
+		0AAF342218E61ECC00424B4C /* AZRUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRUser.h; sourceTree = "<group>"; };
+		0AAF342318E61ECC00424B4C /* AZRUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRUser.m; sourceTree = "<group>"; };
+		0AAF342518E697E700424B4C /* AZRPagesAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRPagesAPI.h; sourceTree = "<group>"; };
+		0AAF342618E697E700424B4C /* AZRPagesAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRPagesAPI.m; sourceTree = "<group>"; };
+		0AAF342818E698B100424B4C /* AZREntities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AZREntities.h; sourceTree = "<group>"; };
+		0AAF342918E6A43D00424B4C /* AZRPageVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRPageVersion.h; sourceTree = "<group>"; };
+		0AAF342A18E6A43D00424B4C /* AZRPageVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRPageVersion.m; sourceTree = "<group>"; };
+		0AAF342C18E6AC9B00424B4C /* AZRVersionsDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRVersionsDataSource.h; sourceTree = "<group>"; };
+		0AAF342D18E6AC9B00424B4C /* AZRVersionsDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRVersionsDataSource.m; sourceTree = "<group>"; };
+		0AAF342F18E6B17600424B4C /* AZRVersionCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRVersionCellView.h; sourceTree = "<group>"; };
+		0AAF343018E6B17600424B4C /* AZRVersionCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRVersionCellView.m; sourceTree = "<group>"; };
+		0AAF343218E6EA9C00424B4C /* tabPreferences.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = tabPreferences.xib; sourceTree = "<group>"; };
 		0AF1C0CE197DE7B600798532 /* AZRGroupTableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRGroupTableCellView.h; sourceTree = "<group>"; };
 		0AF1C0CF197DE7B600798532 /* AZRGroupTableCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRGroupTableCellView.m; sourceTree = "<group>"; };
 		0AFC9E2418E220520050C53F /* tabVersions.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = tabVersions.xib; sourceTree = "<group>"; };
@@ -180,8 +215,10 @@
 			isa = PBXGroup;
 			children = (
 				0A59508D197C370C00B9F60D /* MainMenu.xib */,
+				0AAF341A18E5F86500424B4C /* tabLogin.xib */,
 				0A272C8318E2035F008070DE /* tabUpdates.xib */,
 				0AFC9E2418E220520050C53F /* tabVersions.xib */,
+				0AAF343218E6EA9C00424B4C /* tabPreferences.xib */,
 				0A7A8665197D4A5200E80B98 /* Table views */,
 				0A40064F18E36F3100746C2D /* Tab Provider */,
 			);
@@ -204,6 +241,8 @@
 		0A40065318E36FAF00746C2D /* Tabs */ = {
 			isa = PBXGroup;
 			children = (
+				0AAF341718E5F84800424B4C /* AZRLoginTab.h */,
+				0AAF341818E5F84800424B4C /* AZRLoginTab.m */,
 				0A40065018E36FA600746C2D /* AZRUpdatesTab.h */,
 				0A40065118E36FA600746C2D /* AZRUpdatesTab.m */,
 				0A40065718E376F200746C2D /* AZRVersionsTab.h */,
@@ -335,10 +374,11 @@
 			children = (
 				0A5950BF197C428C00B9F60D /* AZRAPILayer.h */,
 				0A5950C0197C428C00B9F60D /* AZRAPILayer.m */,
-				0A5950C7197C438600B9F60D /* AZRAPIAction.h */,
-				0A5950C8197C438600B9F60D /* AZRAPIAction.m */,
-				0AAF340418E5EA6C00424B4C /* AZHTTPRequest.h */,
-				0AAF340518E5EA6C00424B4C /* AZHTTPRequest.m */,
+				0AAF341418E5F3D400424B4C /* AZRJSONAPI.h */,
+				0AAF341518E5F3D400424B4C /* AZRJSONAPI.m */,
+				0AAF341C18E5FF0D00424B4C /* AZAPIProvider.h */,
+				0AAF341D18E5FF0D00424B4C /* AZAPIProvider.m */,
+				0AAF341318E5F06D00424B4C /* HTTP Requests */,
 				0AAF33FD18E5E71300424B4C /* Actions */,
 				0A5950D5197CD9AD00B9F60D /* AnkhZet Entities */,
 			);
@@ -348,6 +388,7 @@
 		0A5950D5197CD9AD00B9F60D /* AnkhZet Entities */ = {
 			isa = PBXGroup;
 			children = (
+				0AAF342818E698B100424B4C /* AZREntities.h */,
 				0A7A8672197D5E1A00E80B98 /* AZREntitiesRegistry.h */,
 				0A7A8673197D5E1A00E80B98 /* AZREntitiesRegistry.m */,
 				0A7A8675197D5E8C00E80B98 /* AZREntity.h */,
@@ -364,6 +405,8 @@
 				0A5950CB197C946900B9F60D /* AZRAuthorsDataSource.m */,
 				0A7A8669197D4CE400E80B98 /* AZRUpdatesDataSource.h */,
 				0A7A866A197D4CE400E80B98 /* AZRUpdatesDataSource.m */,
+				0AAF342C18E6AC9B00424B4C /* AZRVersionsDataSource.h */,
+				0AAF342D18E6AC9B00424B4C /* AZRVersionsDataSource.m */,
 				0AF1C0D1197DE80B00798532 /* Table cells */,
 			);
 			name = "Table views";
@@ -372,10 +415,14 @@
 		0A7A8678197D5F7100E80B98 /* Specific */ = {
 			isa = PBXGroup;
 			children = (
+				0AAF342218E61ECC00424B4C /* AZRUser.h */,
+				0AAF342318E61ECC00424B4C /* AZRUser.m */,
 				0A5950D2197CD9A400B9F60D /* AZRAuthor.h */,
 				0A5950D3197CD9A400B9F60D /* AZRAuthor.m */,
 				0A7A8679197D644B00E80B98 /* AZRPage.h */,
 				0A7A867A197D644B00E80B98 /* AZRPage.m */,
+				0AAF342918E6A43D00424B4C /* AZRPageVersion.h */,
+				0AAF342A18E6A43D00424B4C /* AZRPageVersion.m */,
 				0A7A867C197D647B00E80B98 /* AZRGroup.h */,
 				0A7A867D197D647B00E80B98 /* AZRGroup.m */,
 				0A7A866F197D5DAC00E80B98 /* AZRUpdate.h */,
@@ -387,12 +434,29 @@
 		0AAF33FD18E5E71300424B4C /* Actions */ = {
 			isa = PBXGroup;
 			children = (
-				0AAF33FE18E5E73300424B4C /* AZRUserLayer.h */,
-				0AAF33FF18E5E73300424B4C /* AZRUserLayer.m */,
-				0AAF340118E5E74500424B4C /* AZRAuthorsLayer.h */,
-				0AAF340218E5E74500424B4C /* AZRAuthorsLayer.m */,
+				0AAF33FE18E5E73300424B4C /* AZRUserAPI.h */,
+				0AAF33FF18E5E73300424B4C /* AZRUserAPI.m */,
+				0AAF340118E5E74500424B4C /* AZRAuthorsAPI.h */,
+				0AAF340218E5E74500424B4C /* AZRAuthorsAPI.m */,
+				0AAF342518E697E700424B4C /* AZRPagesAPI.h */,
+				0AAF342618E697E700424B4C /* AZRPagesAPI.m */,
+				0AAF341F18E604AD00424B4C /* AZRUpdatesAPI.h */,
+				0AAF342018E604AD00424B4C /* AZRUpdatesAPI.m */,
 			);
 			name = Actions;
+			sourceTree = "<group>";
+		};
+		0AAF341318E5F06D00424B4C /* HTTP Requests */ = {
+			isa = PBXGroup;
+			children = (
+				0AAF340418E5EA6C00424B4C /* AZHTTPRequest.h */,
+				0AAF340518E5EA6C00424B4C /* AZHTTPRequest.m */,
+				0AAF340D18E5F03A00424B4C /* AZJSONRequest.h */,
+				0AAF340E18E5F03A00424B4C /* AZJSONRequest.m */,
+				0AAF341018E5F06900424B4C /* AZHTMLRequest.h */,
+				0AAF341118E5F06900424B4C /* AZHTMLRequest.m */,
+			);
+			name = "HTTP Requests";
 			sourceTree = "<group>";
 		};
 		0AF1C0D1197DE80B00798532 /* Table cells */ = {
@@ -408,6 +472,8 @@
 				0A7A866D197D5A8C00E80B98 /* AZRUpdateTableCellView.m */,
 				0A347F81197DFCC1009B02D5 /* AZRHeaderCellView.h */,
 				0A347F82197DFCC1009B02D5 /* AZRHeaderCellView.m */,
+				0AAF342F18E6B17600424B4C /* AZRVersionCellView.h */,
+				0AAF343018E6B17600424B4C /* AZRVersionCellView.m */,
 			);
 			name = "Table cells";
 			sourceTree = "<group>";
@@ -494,8 +560,10 @@
 				0A347F8B197E0CE9009B02D5 /* fav32.ico in Resources */,
 				0A595083197C370B00B9F60D /* InfoPlist.strings in Resources */,
 				0A595094197C370C00B9F60D /* Images.xcassets in Resources */,
+				0AAF343318E6EA9C00424B4C /* tabPreferences.xib in Resources */,
 				0A595089197C370B00B9F60D /* Credits.rtf in Resources */,
 				0A272C8418E2035F008070DE /* tabUpdates.xib in Resources */,
+				0AAF341B18E5F86500424B4C /* tabLogin.xib in Resources */,
 				0AFC9E2518E220520050C53F /* tabVersions.xib in Resources */,
 				0A59508F197C370C00B9F60D /* MainMenu.xib in Resources */,
 			);
@@ -549,30 +617,38 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0AAF340318E5E74500424B4C /* AZRAuthorsLayer.m in Sources */,
+				0AAF340318E5E74500424B4C /* AZRAuthorsAPI.m in Sources */,
+				0AAF342B18E6A43D00424B4C /* AZRPageVersion.m in Sources */,
+				0AAF342118E604AD00424B4C /* AZRUpdatesAPI.m in Sources */,
 				0A7A8668197D4A7300E80B98 /* AZRConfigurableTableCellView.m in Sources */,
 				0A40065918E376F200746C2D /* AZRVersionsTab.m in Sources */,
 				0AFC9E2818E357BB0050C53F /* NSColor+AnkhColors.m in Sources */,
+				0AAF341E18E5FF0D00424B4C /* AZAPIProvider.m in Sources */,
 				0A5950B8197C387000B9F60D /* AZSynkEnabledStorage.m in Sources */,
-				0A5950C9197C438600B9F60D /* AZRAPIAction.m in Sources */,
 				0A7A867B197D644B00E80B98 /* AZRPage.m in Sources */,
 				0A5950CF197CA22700B9F60D /* AZRAuthorTableCellView.m in Sources */,
 				0A7A8674197D5E1A00E80B98 /* AZREntitiesRegistry.m in Sources */,
 				0AF1C0D0197DE7B600798532 /* AZRGroupTableCellView.m in Sources */,
+				0AAF341218E5F06900424B4C /* AZHTMLRequest.m in Sources */,
 				0A59508C197C370B00B9F60D /* AZRAppDelegate.m in Sources */,
 				0AAF340618E5EA6C00424B4C /* AZHTTPRequest.m in Sources */,
 				0A5950BA197C387000B9F60D /* DataProxy.m in Sources */,
+				0AAF342718E697E700424B4C /* AZRPagesAPI.m in Sources */,
+				0AAF341918E5F84800424B4C /* AZRLoginTab.m in Sources */,
 				0A56B91D18E35575003D170D /* NSString+AnkhUtils.m in Sources */,
 				0A7A8671197D5DAC00E80B98 /* AZRUpdate.m in Sources */,
 				0A40065618E370DB00746C2D /* AZRTabsGroup.m in Sources */,
 				0AAF340C18E5EB0E00424B4C /* NSArray+AnkhUtils.m in Sources */,
 				0A7A8677197D5E8C00E80B98 /* AZREntity.m in Sources */,
+				0AAF340F18E5F03A00424B4C /* AZJSONRequest.m in Sources */,
 				0A5950BE197C391000B9F60D /* AZUtils.m in Sources */,
 				0A5950D4197CD9A400B9F60D /* AZRAuthor.m in Sources */,
 				0A5950C1197C428C00B9F60D /* AZRAPILayer.m in Sources */,
 				0A7A866B197D4CE400E80B98 /* AZRUpdatesDataSource.m in Sources */,
 				0AAF340918E5EA8D00424B4C /* NSURL+AnkhUtils.m in Sources */,
-				0AAF340018E5E73300424B4C /* AZRUserLayer.m in Sources */,
+				0AAF341618E5F3D400424B4C /* AZRJSONAPI.m in Sources */,
+				0AAF340018E5E73300424B4C /* AZRUserAPI.m in Sources */,
+				0AAF342E18E6AC9B00424B4C /* AZRVersionsDataSource.m in Sources */,
 				0A595092197C370C00B9F60D /* AnkhReader.xcdatamodeld in Sources */,
 				0A595085197C370B00B9F60D /* main.m in Sources */,
 				0A40064E18E36F2700746C2D /* AZRTabProvider.m in Sources */,
@@ -580,7 +656,9 @@
 				0A40065218E36FA600746C2D /* AZRUpdatesTab.m in Sources */,
 				0A5950CC197C946900B9F60D /* AZRAuthorsDataSource.m in Sources */,
 				0A7A866E197D5A8C00E80B98 /* AZRUpdateTableCellView.m in Sources */,
+				0AAF342418E61ECC00424B4C /* AZRUser.m in Sources */,
 				0A5950B7197C387000B9F60D /* AZDataProxyContainer.m in Sources */,
+				0AAF343118E6B17600424B4C /* AZRVersionCellView.m in Sources */,
 				0A7A867E197D647B00E80B98 /* AZRGroup.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

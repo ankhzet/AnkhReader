@@ -45,18 +45,15 @@
 	return GroupTypeIdentifier;
 }
 
-+ (instancetype) entity:(NSNumber *)uid fromJSON:(NSDictionary *)json inRegistry:(AZREntitiesRegistry *)registry {
-	AZRGroup *group = [registry hasEntity:uid withType:[self type]];
-	if (group)
-		return group;
+- (void) aquireDataFromJSON:(NSDictionary *)json inRegistry:(AZREntitiesRegistry *)registry {
+	ASSIGN_IF_NOTNULL(self.author, REGISTERED_ENTITY(AZRAuthor, registry, json, @"authorID"));
+	
+	ASSIGN_IF_NOTNULL(self.title, [json objectForKey:@"group"]);
+	ASSIGN_IF_NOTNULL(self.description, [json objectForKey:@"description"]);
+}
 
-	group = [self newEntity:uid inRegistry:registry];
-
-	group.author = [registry hasEntity:[json objectForKey:@"authorID"] withType:[AZRAuthor type]];
-
-	group.title = [json objectForKey:@"group"];
-
-	return group;
+- (NSString *) description {
+	return [NSString stringWithFormat:@"{Group@%@: %@ (%@)}", self.uid, self.title, self.author.fio];
 }
 
 @end

@@ -28,19 +28,12 @@
 	return AuthorTypeIdentifier;
 }
 
-+ (instancetype) entity:(NSNumber *)uid fromJSON:(NSDictionary *)json inRegistry:(AZREntitiesRegistry *)registry {
-	AZRAuthor *author = [registry hasEntity:uid withType:[self type]];
-	if (author)
-		return author;
+- (void) aquireDataFromJSON:(NSDictionary *)json inRegistry:(AZREntitiesRegistry *)registry {
+	ASSIGN_IF_NOTNULL(self.fio, [json objectForKey:@"fio"]);
+	ASSIGN_IF_NOTNULL(self.link, [json objectForKey:@"link"]);
+	ASSIGN_IF_NOTNULL(self.updated, [json objectForKey:@"time"]);
 
-	author = [self newEntity:uid inRegistry:registry];
-	author.fio = [json objectForKey:@"fio"];
-	author.link = [json objectForKey:@"link"];
-	author.updated = [json objectForKey:@"time"];
-
-	author.updateFreq = @0;
-
-	return author;
+	self.updateFreq = @0;
 }
 
 + (NSDictionary *) authorsFromJSON:(NSArray *)json inRegistry:(AZREntitiesRegistry *)registry {
@@ -55,7 +48,7 @@
 
 
 - (NSString *) description {
-	return [NSString stringWithFormat:@"{@%@:%@}", self.uid, self.fio];
+	return [NSString stringWithFormat:@"{Author@%@: %@}", self.uid, self.fio];
 }
 
 @end

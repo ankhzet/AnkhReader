@@ -9,6 +9,7 @@
 #ifndef AnkhReader_AZRTabsCommons_h
 #define AnkhReader_AZRTabsCommons_h
 
+static NSString *AZRUIDLoginTab = @"login";
 static NSString *AZRUIDUpdatesTab = @"updates";
 static NSString *AZRUIDVersionsTab = @"versions";
 
@@ -17,5 +18,6 @@ static NSString *AZRUIDVersionsTab = @"versions";
 
 #import "AZRUpdatesTab.h"
 #import "AZRVersionsTab.h"
+#import "AZRLoginTab.h"
 
 #endif

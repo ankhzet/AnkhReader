@@ -34,6 +34,7 @@
 		return self;
 
 	_updates = [NSMutableDictionary dictionary];
+	_versions = [NSMutableDictionary dictionary];
 	return self;
 }
 
@@ -42,23 +43,30 @@
 	return PageTypeIdentifier;
 }
 
-+ (instancetype) entity:(NSNumber *)uid fromJSON:(NSDictionary *)json inRegistry:(AZREntitiesRegistry *)registry {
-	AZRPage *page = [registry hasEntity:uid withType:[self type]];
-	if (page)
-		return page;
+- (void) aquireDataFromJSON:(NSDictionary *)json inRegistry:(AZREntitiesRegistry *)registry {
+	ASSIGN_IF_NOTNULL(self.author, REGISTERED_ENTITY(AZRAuthor, registry, json, @"authorID"));
+	ASSIGN_IF_NOTNULL(self.group, REGISTERED_ENTITY(AZRGroup, registry, json, @"groupID"));
 
-	page = [self newEntity:uid inRegistry:registry];
+	ASSIGN_IF_NOTNULL(self.title, [json objectForKey:@"title"]);
+	ASSIGN_IF_NOTNULL(self.link, [json objectForKey:@"link"]);
 
-	page.author = [registry hasEntity:[json objectForKey:@"authorID"] withType:[AZRAuthor type]];
-	page.group = [registry hasEntity:[json objectForKey:@"groupID"] withType:[AZRGroup type]];
+	NSDictionary *d = [json objectForKey:@"description"] ? [json objectForKey:@"description"] : json;
+	ASSIGN_IF_NOTNULL(self.descr, [d objectForKey:@"description"]);
+	ASSIGN_IF_NOTNULL(self.size, [[d objectForKey:@"size"] unsignedIntegerValue]);
+}
 
-	page.title = [json objectForKey:@"title"];
-	
-	NSDictionary *d = [json objectForKey:@"description"];
-	page.description = [d objectForKey:@"description"];
-	page.size = [[d objectForKey:@"size"] unsignedIntegerValue];
++ (NSDictionary *) pagesFromJSON:(NSArray *)json inRegistry:(AZREntitiesRegistry *)registry {
+	NSMutableDictionary *pages = [NSMutableDictionary dictionaryWithCapacity:[json count]];
+	for (NSDictionary *pageJSON in json) {
+		AZRPage *page = [self entity:[pageJSON objectForKey:@"id"] fromJSON:pageJSON inRegistry:registry];
+		pages[page.uid] = page;
+	}
 
-	return page;
+	return pages;
+}
+
+- (NSString *) description {
+	return [NSString stringWithFormat:@"{Page@%@: %@ (%@) %lu kB}", self.uid, self.title, self.link, (unsigned long)self.size];
 }
 
 @end

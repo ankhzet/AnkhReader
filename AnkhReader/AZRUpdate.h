@@ -35,4 +35,6 @@ NS_ENUM(NSUInteger, AZRUpdateKind) {
 - (BOOL) isNew;
 - (BOOL) isDeleted;
 
++ (NSDictionary *) fetchUpdates:(NSArray *)updates inRegistry:(AZREntitiesRegistry *)registry;
+
 @end
