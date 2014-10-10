@@ -13,10 +13,11 @@
 
 #import "AZRTabsCommons.h"
 
-@interface AZRAppDelegate () {
+@interface AZRAppDelegate () <AZRTabsGroupDelegate> {
 	AZRTabsGroup *tabs;
 }
 
+@property (weak) IBOutlet NSToolbar *tbToolbar;
 @property (weak) IBOutlet NSTabView *tvTabs;
 
 @end
@@ -24,12 +25,6 @@
 @implementation AZRAppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-
-	tabs = [[AZRTabsGroup alloc] initWithTabView:self.tvTabs];
-	[tabs registerTab:[AZRLoginTab class]];
-	[tabs registerTab:[AZRUpdatesTab class]];
-	[tabs registerTab:[AZRVersionsTab class]];
-
 	AZSynkEnabledStorage *storage = [AZSynkEnabledStorage storageWithParameters:@{
 																																								kDPParameterModelName:@"AnkhReader",
 																																								kDPParameterStorageFile:@"AnkhReader.sqlite",
@@ -39,7 +34,39 @@
 	[storage subscribeForUpdateNotifications:self selector:@selector(synkNotification:)];
 	[storage synkToggled];
 
+	tabs = [[AZRTabsGroup alloc] initWithTabView:self.tvTabs];
+	[tabs registerTab:[AZRLoginTab class]];
+	[tabs registerTab:[AZRUpdatesTab class]];
+	[tabs registerTab:[AZRVersionsTab class]];
+	[tabs registerTab:[AZRPreferencesTab class]];
+	tabs.delegate = self;
+
 	[tabs navigateTo:AZRUIDLoginTab withNavData:nil];
+}
+
+- (NSToolbarItem *) toolbar:(NSToolbar *)toolbar itemWithIdentifier:(NSString *)identifier {
+	NSArray *items = [toolbar items];
+	for (NSToolbarItem *i in items)
+		if ([[i itemIdentifier] isEqualToString:identifier])
+			return i;
+
+	return nil;
+}
+
+- (BOOL) tabGroup:(AZRTabsGroup *)tabGroup navigateTo:(AZRTabProvider *)tab {
+	NSToolbarItem *navTo = [self toolbar:self.tbToolbar itemWithIdentifier:[tab tabIdentifier]];
+	if (navTo)
+		[navTo setEnabled:NO];
+
+	return YES;
+}
+
+- (void) tabGroup:(AZRTabsGroup *)tabGroup navigatedTo:(AZRTabProvider *)tab {
+	NSToolbarItem *navTo = [self toolbar:self.tbToolbar itemWithIdentifier:[tab tabIdentifier]];
+	if (navTo)
+		[navTo setEnabled:YES];
+
+	[self.tbToolbar setSelectedItemIdentifier:[tab tabIdentifier]];
 }
 
 - (void) synkNotification:(NSNotification *)notification {
@@ -47,6 +74,10 @@
 
 - (IBAction)showUpdates:(id)sender {
 	[tabs navigateTo:AZRUIDUpdatesTab withNavData:nil];
+}
+
+- (IBAction)showPreferences:(id)sender {
+	[tabs navigateTo:AZRUIDPreferencesTab withNavData:nil];
 }
 
 // Performs the save action for the application, which is to send the save: message to the application's managed object context. Any encountered errors are presented to the user.

@@ -44,6 +44,7 @@
 		0A7A867B197D644B00E80B98 /* AZRPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7A867A197D644B00E80B98 /* AZRPage.m */; };
 		0A7A867E197D647B00E80B98 /* AZRGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7A867D197D647B00E80B98 /* AZRGroup.m */; };
 		0A92F9F919E7101100ABA57A /* AZJSONUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A92F9F819E7101100ABA57A /* AZJSONUtils.m */; };
+		0AA05BBE19E7545800962614 /* AZRFlippedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA05BBD19E7545800962614 /* AZRFlippedView.m */; };
 		0AAF340018E5E73300424B4C /* AZRUserAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAF33FF18E5E73300424B4C /* AZRUserAPI.m */; };
 		0AAF340318E5E74500424B4C /* AZRAuthorsAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAF340218E5E74500424B4C /* AZRAuthorsAPI.m */; };
 		0AAF340618E5EA6C00424B4C /* AZHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAF340518E5EA6C00424B4C /* AZHTTPRequest.m */; };
@@ -62,6 +63,7 @@
 		0AAF342E18E6AC9B00424B4C /* AZRVersionsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAF342D18E6AC9B00424B4C /* AZRVersionsDataSource.m */; };
 		0AAF343118E6B17600424B4C /* AZRVersionCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAF343018E6B17600424B4C /* AZRVersionCellView.m */; };
 		0AAF343318E6EA9C00424B4C /* tabPreferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AAF343218E6EA9C00424B4C /* tabPreferences.xib */; };
+		0AAF343618E6EBA200424B4C /* AZRPreferencesTab.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAF343518E6EBA200424B4C /* AZRPreferencesTab.m */; };
 		0AF1C0D0197DE7B600798532 /* AZRGroupTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AF1C0CF197DE7B600798532 /* AZRGroupTableCellView.m */; };
 		0AFC9E2518E220520050C53F /* tabVersions.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AFC9E2418E220520050C53F /* tabVersions.xib */; };
 		0AFC9E2818E357BB0050C53F /* NSColor+AnkhColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFC9E2718E357BB0050C53F /* NSColor+AnkhColors.m */; };
@@ -149,6 +151,9 @@
 		0A842C4B18E131BE00AC2701 /* AnkhReader 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "AnkhReader 2.xcdatamodel"; sourceTree = "<group>"; };
 		0A92F9F719E70FED00ABA57A /* AZJSONUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AZJSONUtils.h; sourceTree = "<group>"; };
 		0A92F9F819E7101100ABA57A /* AZJSONUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZJSONUtils.m; sourceTree = "<group>"; };
+		0AA05BB719E729A500962614 /* AZRAppCommons.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AZRAppCommons.h; sourceTree = "<group>"; };
+		0AA05BBC19E7545800962614 /* AZRFlippedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRFlippedView.h; sourceTree = "<group>"; };
+		0AA05BBD19E7545800962614 /* AZRFlippedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRFlippedView.m; sourceTree = "<group>"; };
 		0AAF33FE18E5E73300424B4C /* AZRUserAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRUserAPI.h; sourceTree = "<group>"; };
 		0AAF33FF18E5E73300424B4C /* AZRUserAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRUserAPI.m; sourceTree = "<group>"; };
 		0AAF340118E5E74500424B4C /* AZRAuthorsAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRAuthorsAPI.h; sourceTree = "<group>"; };
@@ -184,6 +189,8 @@
 		0AAF342F18E6B17600424B4C /* AZRVersionCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRVersionCellView.h; sourceTree = "<group>"; };
 		0AAF343018E6B17600424B4C /* AZRVersionCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRVersionCellView.m; sourceTree = "<group>"; };
 		0AAF343218E6EA9C00424B4C /* tabPreferences.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = tabPreferences.xib; sourceTree = "<group>"; };
+		0AAF343418E6EBA200424B4C /* AZRPreferencesTab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRPreferencesTab.h; sourceTree = "<group>"; };
+		0AAF343518E6EBA200424B4C /* AZRPreferencesTab.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRPreferencesTab.m; sourceTree = "<group>"; };
 		0AF1C0CE197DE7B600798532 /* AZRGroupTableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRGroupTableCellView.h; sourceTree = "<group>"; };
 		0AF1C0CF197DE7B600798532 /* AZRGroupTableCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRGroupTableCellView.m; sourceTree = "<group>"; };
 		0AFC9E2418E220520050C53F /* tabVersions.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = tabVersions.xib; sourceTree = "<group>"; };
@@ -218,7 +225,6 @@
 		0A272C8218E20326008070DE /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				0AAF343218E6EA9C00424B4C /* tabPreferences.xib */,
 				0A92F9FC19E7120400ABA57A /* Views */,
 				0A7A8665197D4A5200E80B98 /* Table views */,
 				0A40064F18E36F3100746C2D /* Tab Provider */,
@@ -248,6 +254,8 @@
 				0A40065118E36FA600746C2D /* AZRUpdatesTab.m */,
 				0A40065718E376F200746C2D /* AZRVersionsTab.h */,
 				0A40065818E376F200746C2D /* AZRVersionsTab.m */,
+				0AAF343418E6EBA200424B4C /* AZRPreferencesTab.h */,
+				0AAF343518E6EBA200424B4C /* AZRPreferencesTab.m */,
 			);
 			name = Tabs;
 			sourceTree = "<group>";
@@ -314,6 +322,7 @@
 		0A59507E197C370B00B9F60D /* AnkhReader */ = {
 			isa = PBXGroup;
 			children = (
+				0AA05BB719E729A500962614 /* AZRAppCommons.h */,
 				0A59508A197C370B00B9F60D /* AZRAppDelegate.h */,
 				0A59508B197C370B00B9F60D /* AZRAppDelegate.m */,
 				0A56B91A18E35544003D170D /* Utils */,
@@ -458,6 +467,9 @@
 				0AAF341A18E5F86500424B4C /* tabLogin.xib */,
 				0A272C8318E2035F008070DE /* tabUpdates.xib */,
 				0AFC9E2418E220520050C53F /* tabVersions.xib */,
+				0AAF343218E6EA9C00424B4C /* tabPreferences.xib */,
+				0AA05BBC19E7545800962614 /* AZRFlippedView.h */,
+				0AA05BBD19E7545800962614 /* AZRFlippedView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -662,6 +674,7 @@
 				0A40065918E376F200746C2D /* AZRVersionsTab.m in Sources */,
 				0AFC9E2818E357BB0050C53F /* NSColor+AnkhColors.m in Sources */,
 				0AAF341E18E5FF0D00424B4C /* AZAPIProvider.m in Sources */,
+				0AA05BBE19E7545800962614 /* AZRFlippedView.m in Sources */,
 				0A5950B8197C387000B9F60D /* AZSynkEnabledStorage.m in Sources */,
 				0A7A867B197D644B00E80B98 /* AZRPage.m in Sources */,
 				0A5950CF197CA22700B9F60D /* AZRAuthorTableCellView.m in Sources */,
@@ -688,6 +701,7 @@
 				0A92F9F919E7101100ABA57A /* AZJSONUtils.m in Sources */,
 				0AAF340018E5E73300424B4C /* AZRUserAPI.m in Sources */,
 				0AAF342E18E6AC9B00424B4C /* AZRVersionsDataSource.m in Sources */,
+				0AAF343618E6EBA200424B4C /* AZRPreferencesTab.m in Sources */,
 				0A595092197C370C00B9F60D /* AnkhReader.xcdatamodeld in Sources */,
 				0A595085197C370B00B9F60D /* main.m in Sources */,
 				0A40064E18E36F2700746C2D /* AZRTabProvider.m in Sources */,

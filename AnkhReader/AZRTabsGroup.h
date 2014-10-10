@@ -8,9 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
-@class AZRTabProvider;
+@class AZRTabProvider, AZRTabsGroup;
+
+@protocol AZRTabsGroupDelegate <NSObject>
+
+- (BOOL) tabGroup:(AZRTabsGroup *)tabGroup navigateTo:(AZRTabProvider *)tab;
+- (void) tabGroup:(AZRTabsGroup *)tabGroup navigatedTo:(AZRTabProvider *)tab;
+
+@end
 
 @interface AZRTabsGroup : NSObject
+@property (nonatomic, weak) id<AZRTabsGroupDelegate> delegate;
 
 - (id) initWithTabView:(NSTabView *)tabView;
 

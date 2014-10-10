@@ -12,6 +12,8 @@
 
 @property (assign) IBOutlet NSWindow *window;
 
+- (IBAction)showUpdates:(id)sender;
+- (IBAction)showPreferences:(id)sender;
 - (IBAction)saveAction:(id)sender;
 
 @end

@@ -18,6 +18,12 @@
 	return [self new];
 }
 
+- (void) unLogin {
+	for (NSHTTPCookie *cookie in cookies) {
+		[[NSHTTPCookieStorage sharedHTTPCookieStorage] deleteCookie:cookie];
+	}
+}
+
 - (AZHTTPRequest *) aquireUser:(NSUInteger)uid withCompletion:(void(^)(id data))block {
 	NSNumber *nuid = @(uid);
 	AZRUser *user = [AZREntitiesRegistry hasEntity:nuid withType:[AZRUser type]];

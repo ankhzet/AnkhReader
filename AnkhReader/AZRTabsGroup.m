@@ -42,10 +42,17 @@
 }
 
 - (void) navigateTo:(NSString *)tabIdentifier withNavData:(id)data {
+	AZRTabProvider *tab = [self tabByID:tabIdentifier];
+
+	if (self.delegate)
+		if (![self.delegate tabGroup:self navigateTo:tab])
+			return;
+
 	[tvTabs selectTabViewItemWithIdentifier:tabIdentifier];
 
-	AZRTabProvider *tab = [self tabByID:tabIdentifier];
 	[tab navigateTo:data];
+
+	if (self.delegate) [self.delegate tabGroup:self navigatedTo:tab];
 }
 
 @end

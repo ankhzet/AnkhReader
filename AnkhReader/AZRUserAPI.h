@@ -11,6 +11,7 @@
 @class AZRUser;
 @interface AZRUserAPI : AZJSONAPI
 
+- (void) unLogin;
 - (AZHTTPRequest *) loginWithParams:(NSDictionary *)params withCompletion:(void(^)(id data))block;
 
 @end

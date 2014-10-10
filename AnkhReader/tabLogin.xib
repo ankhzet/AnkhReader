@@ -45,6 +45,7 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                     <connections>
+                        <action selector="actionUserLoginChanged:" target="-2" id="Bry-Co-UXp"/>
                         <outlet property="nextKeyView" destination="fM0-J1-ipv" id="dhk-Iu-ekF"/>
                     </connections>
                 </textField>
@@ -55,8 +56,12 @@
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        <allowedInputSourceLocales>
+                            <string>NSAllRomanInputSourcesLocaleIdentifier</string>
+                        </allowedInputSourceLocales>
                     </secureTextFieldCell>
                     <connections>
+                        <action selector="actionUserPasswordChanged:" target="-2" id="Y2I-VF-vEZ"/>
                         <outlet property="nextKeyView" destination="Vki-kZ-9Vl" id="Fnz-MI-3mj"/>
                     </connections>
                 </secureTextField>

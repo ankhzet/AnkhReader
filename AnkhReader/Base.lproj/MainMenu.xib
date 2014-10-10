@@ -26,7 +26,11 @@
                             <menuItem isSeparatorItem="YES" id="236">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Preferences…" keyEquivalent="," id="129"/>
+                            <menuItem title="Preferences…" keyEquivalent="," id="129">
+                                <connections>
+                                    <action selector="showPreferences:" target="494" id="Nk2-yJ-cHz"/>
+                                </connections>
+                            </menuItem>
                             <menuItem isSeparatorItem="YES" id="143">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
@@ -684,28 +688,39 @@
             <toolbar key="toolbar" implicitIdentifier="ABE8E572-CA00-42F4-A8F5-DBEFEED56A03" autosavesConfiguration="NO" displayMode="iconOnly" sizeMode="small" id="yD8-JS-acU">
                 <allowedToolbarItems>
                     <toolbarItem implicitItemIdentifier="8449A8BA-937E-499B-BF16-CC2D6AA0EDBC" label="Save" paletteLabel="Save" tag="-1" image="NSApplicationIcon" id="N0H-O3-2p4"/>
-                    <toolbarItem implicitItemIdentifier="713C96A8-2B66-45CB-AADB-9E828F360ED8" label="Preferences" paletteLabel="Preferences" tag="-1" image="NSActionTemplate" id="Og3-DK-2hk"/>
+                    <toolbarItem implicitItemIdentifier="713C96A8-2B66-45CB-AADB-9E828F360ED8" explicitItemIdentifier="preferences" label="Preferences" paletteLabel="Preferences" tag="-1" image="NSPreferencesGeneral" selectable="YES" id="Og3-DK-2hk">
+                        <connections>
+                            <action selector="showPreferences:" target="494" id="82a-nB-i3a"/>
+                        </connections>
+                    </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="NSToolbarSeparatorItem" id="cfM-md-Ist"/>
                     <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="xuf-Ph-Mu3"/>
                     <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="SUk-Gn-Zxt"/>
-                    <toolbarItem implicitItemIdentifier="NSToolbarSeparatorItem" id="cfM-md-Ist"/>
-                    <toolbarItem implicitItemIdentifier="A2FC644B-4C12-4601-9632-CE4B2824BB61" label="Home" paletteLabel="Home" tag="-1" image="NSHomeTemplate" id="olS-HK-OxS">
+                    <toolbarItem implicitItemIdentifier="A2FC644B-4C12-4601-9632-CE4B2824BB61" explicitItemIdentifier="updates" label="Home" paletteLabel="Home" tag="-1" image="NSHomeTemplate" selectable="YES" id="olS-HK-OxS">
                         <connections>
                             <action selector="showUpdates:" target="494" id="8P3-bQ-Xvm"/>
                         </connections>
                     </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="E80FFD7F-785B-49AD-8914-5D347EDA0CB0" explicitItemIdentifier="reader" label="Reader" paletteLabel="Reader" tag="-1" image="NSBookmarksTemplate" selectable="YES" id="bc7-G6-JEk"/>
+                    <toolbarItem implicitItemIdentifier="4943E5FE-24E3-4B47-A359-E6EA8820E51A" explicitItemIdentifier="versions" label="Versions" paletteLabel="Versions" tag="-1" image="NSListViewTemplate" selectable="YES" id="mqU-uk-eOw"/>
+                    <toolbarItem implicitItemIdentifier="49A8FE7C-7B4D-4A0C-8556-D8D0CBD89543" explicitItemIdentifier="refresh" label="Refresh cache" paletteLabel="Refresh cache" tag="-1" image="NSRefreshFreestandingTemplate" id="9fh-NG-4VS"/>
                 </allowedToolbarItems>
                 <defaultToolbarItems>
-                    <toolbarItem reference="olS-HK-OxS"/>
-                    <toolbarItem reference="cfM-md-Ist"/>
                     <toolbarItem reference="N0H-O3-2p4"/>
                     <toolbarItem reference="cfM-md-Ist"/>
-                    <toolbarItem reference="Og3-DK-2hk"/>
+                    <toolbarItem reference="9fh-NG-4VS"/>
+                    <toolbarItem reference="olS-HK-OxS"/>
+                    <toolbarItem reference="mqU-uk-eOw"/>
+                    <toolbarItem reference="bc7-G6-JEk"/>
+                    <toolbarItem reference="cfM-md-Ist"/>
                     <toolbarItem reference="SUk-Gn-Zxt"/>
+                    <toolbarItem reference="Og3-DK-2hk"/>
                 </defaultToolbarItems>
             </toolbar>
         </window>
         <customObject id="494" customClass="AZRAppDelegate">
             <connections>
+                <outlet property="tbToolbar" destination="yD8-JS-acU" id="TSt-zr-Wev"/>
                 <outlet property="tvTabs" destination="NGD-Se-LKY" id="NjM-zY-X3K"/>
                 <outlet property="window" destination="371" id="532"/>
             </connections>
@@ -714,8 +729,11 @@
         <userDefaultsController representsSharedInstance="YES" id="dF7-e8-rAH"/>
     </objects>
     <resources>
-        <image name="NSActionTemplate" width="15" height="15"/>
         <image name="NSApplicationIcon" width="128" height="128"/>
+        <image name="NSBookmarksTemplate" width="17" height="12"/>
         <image name="NSHomeTemplate" width="14" height="13"/>
+        <image name="NSListViewTemplate" width="11" height="10"/>
+        <image name="NSPreferencesGeneral" width="32" height="32"/>
+        <image name="NSRefreshFreestandingTemplate" width="14" height="14"/>
     </resources>
 </document>
