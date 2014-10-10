@@ -10,11 +10,11 @@
 
 @interface AZRPageVersion : AZREntity
 
-@property (nonatomic, weak) AZRPage *page;
+@property (nonatomic, retain) AZRPage *page;
 
-@property (nonatomic) NSUInteger timestamp;
-@property (nonatomic) NSUInteger size;
-@property (nonatomic) NSUInteger zipped;
+@property (nonatomic, retain) NSNumber *timestamp;
+@property (nonatomic, retain) NSNumber *size;
+@property (nonatomic, retain) NSNumber *zipped;
 
 + (NSDictionary *) pageVersionsFromJSON:(NSArray *)json inRegistry:(AZREntitiesRegistry *)registry;
 

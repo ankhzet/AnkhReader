@@ -43,6 +43,7 @@
 		0A7A8677197D5E8C00E80B98 /* AZREntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7A8676197D5E8C00E80B98 /* AZREntity.m */; };
 		0A7A867B197D644B00E80B98 /* AZRPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7A867A197D644B00E80B98 /* AZRPage.m */; };
 		0A7A867E197D647B00E80B98 /* AZRGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7A867D197D647B00E80B98 /* AZRGroup.m */; };
+		0A92F9F919E7101100ABA57A /* AZJSONUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A92F9F819E7101100ABA57A /* AZJSONUtils.m */; };
 		0AAF340018E5E73300424B4C /* AZRUserAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAF33FF18E5E73300424B4C /* AZRUserAPI.m */; };
 		0AAF340318E5E74500424B4C /* AZRAuthorsAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAF340218E5E74500424B4C /* AZRAuthorsAPI.m */; };
 		0AAF340618E5EA6C00424B4C /* AZHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAF340518E5EA6C00424B4C /* AZHTTPRequest.m */; };
@@ -145,6 +146,9 @@
 		0A7A867A197D644B00E80B98 /* AZRPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRPage.m; sourceTree = "<group>"; };
 		0A7A867C197D647B00E80B98 /* AZRGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRGroup.h; sourceTree = "<group>"; };
 		0A7A867D197D647B00E80B98 /* AZRGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRGroup.m; sourceTree = "<group>"; };
+		0A842C4B18E131BE00AC2701 /* AnkhReader 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "AnkhReader 2.xcdatamodel"; sourceTree = "<group>"; };
+		0A92F9F719E70FED00ABA57A /* AZJSONUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AZJSONUtils.h; sourceTree = "<group>"; };
+		0A92F9F819E7101100ABA57A /* AZJSONUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZJSONUtils.m; sourceTree = "<group>"; };
 		0AAF33FE18E5E73300424B4C /* AZRUserAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRUserAPI.h; sourceTree = "<group>"; };
 		0AAF33FF18E5E73300424B4C /* AZRUserAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRUserAPI.m; sourceTree = "<group>"; };
 		0AAF340118E5E74500424B4C /* AZRAuthorsAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRAuthorsAPI.h; sourceTree = "<group>"; };
@@ -381,6 +385,7 @@
 				0AAF341318E5F06D00424B4C /* HTTP Requests */,
 				0AAF33FD18E5E71300424B4C /* Actions */,
 				0A5950D5197CD9AD00B9F60D /* AnkhZet Entities */,
+				0A92F9FA19E7111D00ABA57A /* JSON */,
 			);
 			name = "Ankhzet API";
 			sourceTree = "<group>";
@@ -429,6 +434,15 @@
 				0A7A8670197D5DAC00E80B98 /* AZRUpdate.m */,
 			);
 			name = Specific;
+			sourceTree = "<group>";
+		};
+		0A92F9FA19E7111D00ABA57A /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				0A92F9F719E70FED00ABA57A /* AZJSONUtils.h */,
+				0A92F9F819E7101100ABA57A /* AZJSONUtils.m */,
+			);
+			name = JSON;
 			sourceTree = "<group>";
 		};
 		0AAF33FD18E5E71300424B4C /* Actions */ = {
@@ -647,6 +661,7 @@
 				0A7A866B197D4CE400E80B98 /* AZRUpdatesDataSource.m in Sources */,
 				0AAF340918E5EA8D00424B4C /* NSURL+AnkhUtils.m in Sources */,
 				0AAF341618E5F3D400424B4C /* AZRJSONAPI.m in Sources */,
+				0A92F9F919E7101100ABA57A /* AZJSONUtils.m in Sources */,
 				0AAF340018E5E73300424B4C /* AZRUserAPI.m in Sources */,
 				0AAF342E18E6AC9B00424B4C /* AZRVersionsDataSource.m in Sources */,
 				0A595092197C370C00B9F60D /* AnkhReader.xcdatamodeld in Sources */,
@@ -889,9 +904,10 @@
 		0A595090197C370C00B9F60D /* AnkhReader.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				0A842C4B18E131BE00AC2701 /* AnkhReader 2.xcdatamodel */,
 				0A595091197C370C00B9F60D /* AnkhReader.xcdatamodel */,
 			);
-			currentVersion = 0A595091197C370C00B9F60D /* AnkhReader.xcdatamodel */;
+			currentVersion = 0A842C4B18E131BE00AC2701 /* AnkhReader 2.xcdatamodel */;
 			path = AnkhReader.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

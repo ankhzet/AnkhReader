@@ -22,15 +22,15 @@ NS_ENUM(NSUInteger, AZRUpdateKind) {
 @class AZRPage, AZRGroup, AZRAuthor;
 @interface AZRUpdate : AZREntity
 
-@property (nonatomic, weak) AZRAuthor *author;
-@property (nonatomic, weak) AZRGroup *group;
-@property (nonatomic, weak) AZRPage *page;
+@property (nonatomic, retain) AZRAuthor *author;
+@property (nonatomic, retain) AZRGroup *group;
+@property (nonatomic, retain) AZRPage *page;
 
-@property (nonatomic) NSNumber *kind;
+@property (nonatomic, retain) NSNumber *kind;
+@property (nonatomic, retain) NSNumber *value;
+@property (nonatomic, retain) NSNumber *delta;
 
-@property (nonatomic) NSNumber *size;
-@property (nonatomic) NSNumber *delta;
-@property (nonatomic) NSString *pub;
+@property (nonatomic, retain) NSString *pub;
 
 - (BOOL) isNew;
 - (BOOL) isDeleted;

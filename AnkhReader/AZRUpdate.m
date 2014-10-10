@@ -6,37 +6,11 @@
 //  Copyright (c) 2014 Ankh. All rights reserved.
 //
 
-#import "AZREntitiesRegistry.h"
-#import "AZRUpdate.h"
-#import "AZRAuthor.h"
-#import "AZRGroup.h"
-#import "AZRPage.h"
+#import "AZREntities.h"
 
 @implementation AZRUpdate
-
-- (void) setAuthor:(AZRAuthor *)author {
-	if (_author == author)
-		return;
-
-	_author = author;
-	_author.updates[self.uid] = self;
-}
-
-- (void) setGroup:(AZRGroup *)group {
-	if (_group == group)
-		return;
-
-	_group = group;
-	_group.updates[self.uid] = self;
-}
-
-- (void) setPage:(AZRPage *)page {
-	if (_page == page)
-		return;
-
-	_page = page;
-	_page.updates[self.uid] = self;
-}
+@synthesize kind, value, pub, delta;
+@dynamic author, group, page;
 
 + (NSString *) type {
 	static NSString *const UpdateTypeIdentifier = @"update";
@@ -48,20 +22,20 @@
 	ASSIGN_IF_NOTNULL(self.group, REGISTERED_ENTITY(AZRGroup, registry, json, @"groupID"));
 	ASSIGN_IF_NOTNULL(self.page, REGISTERED_ENTITY(AZRPage, registry, json, @"pageID"));
 
-	ASSIGN_IF_NOTNULL(self.kind, [json objectForKey:@"kind"]);
+	ASSIGN_IF_NOTNULL(self.kind, JSON_I(json, @"kind"));
 
-	NSDictionary *desc = [json objectForKey:@"description"];
-	ASSIGN_IF_NOTNULL(self.size, [desc objectForKey:@"size"]);
-	ASSIGN_IF_NOTNULL(self.delta, [desc objectForKey:@"delta"]);
-	ASSIGN_IF_NOTNULL(self.pub, [desc objectForKey:@"pubdate"]);
+	NSDictionary *desc = JSON_O(json, @"description");
+	ASSIGN_IF_NOTNULL(self.value, JSON_I(desc, @"size"));
+	ASSIGN_IF_NOTNULL(self.delta, JSON_I(desc, @"delta"));
+	ASSIGN_IF_NOTNULL(self.pub, JSON_S(desc, @"pubdate"));
 }
 
 - (BOOL) isNew {
-	return [self.size integerValue] == [self.delta integerValue];
+	return [self.value integerValue] == [self.delta integerValue];
 }
 
 - (BOOL) isDeleted {
-	return ![self.size integerValue];
+	return ![self.value integerValue];
 }
 
 + (NSDictionary *) fetchUpdates:(NSArray *)updates inRegistry:(AZREntitiesRegistry *)registry {
@@ -102,7 +76,7 @@
 }
 
 - (NSString *) description {
-	return [NSString stringWithFormat:@"{Update@%@: %@ (%@), %@, %@ from %@ }", self.size, self.delta, self.uid, self.author, self.page, self.group];
+	return [NSString stringWithFormat:@"{Update@%@: [%@] %@ (%@), %@, %@ from %@ }", self.uid, self.kind, self.value, self.delta, self.author, self.page, self.group];
 }
 
 @end

@@ -12,6 +12,6 @@
 @interface AZRPagesAPI : AZRJSONAPI
 
 - (AZHTTPRequest *) aquirePage:(NSUInteger)uid withCompletion:(void(^)(AZRPage *page))block;
-- (AZHTTPRequest *) aquirePageVersions:(AZRPage *)page withCompletion:(void(^)(NSDictionary *versions))block;
+- (AZHTTPRequest *) aquirePageVersions:(AZRPage *)page withCompletion:(void(^)(NSSet *versions))block;
 
 @end

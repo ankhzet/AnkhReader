@@ -12,31 +12,8 @@
 #import "AZRPage.h"
 
 @implementation AZRPage
-
-- (void) setAuthor:(AZRAuthor *)author {
-	if (_author == author)
-		return;
-
-	_author = author;
-	_author.pages[self.uid] = self;
-}
-
-- (void) setGroup:(AZRGroup *)group {
-	if (_group == group)
-		return;
-
-	_group = group;
-	_group.pages[self.uid] = self;
-}
-
-- (id)init {
-	if (!(self = [super init]))
-		return self;
-
-	_updates = [NSMutableDictionary dictionary];
-	_versions = [NSMutableDictionary dictionary];
-	return self;
-}
+@synthesize link, updated, size, title, descr;
+@dynamic author, group, versions, updates;
 
 + (NSString *) type {
 	static NSString *const PageTypeIdentifier = @"page";
@@ -47,18 +24,18 @@
 	ASSIGN_IF_NOTNULL(self.author, REGISTERED_ENTITY(AZRAuthor, registry, json, @"authorID"));
 	ASSIGN_IF_NOTNULL(self.group, REGISTERED_ENTITY(AZRGroup, registry, json, @"groupID"));
 
-	ASSIGN_IF_NOTNULL(self.title, [json objectForKey:@"title"]);
-	ASSIGN_IF_NOTNULL(self.link, [json objectForKey:@"link"]);
+	ASSIGN_IF_NOTNULL(self.title, JSON_S(json, @"title"));
+	ASSIGN_IF_NOTNULL(self.link, JSON_S(json, @"link"));
 
-	NSDictionary *d = [json objectForKey:@"description"] ? [json objectForKey:@"description"] : json;
-	ASSIGN_IF_NOTNULL(self.descr, [d objectForKey:@"description"]);
-	ASSIGN_IF_NOTNULL(self.size, [[d objectForKey:@"size"] unsignedIntegerValue]);
+	NSDictionary *d = JSON_O(json, @"description") ? JSON_O(json, @"description") : json;
+	ASSIGN_IF_NOTNULL(self.descr, JSON_S(d, @"description"));
+	ASSIGN_IF_NOTNULL(self.size, JSON_I(d, @"size"));
 }
 
 + (NSDictionary *) pagesFromJSON:(NSArray *)json inRegistry:(AZREntitiesRegistry *)registry {
 	NSMutableDictionary *pages = [NSMutableDictionary dictionaryWithCapacity:[json count]];
 	for (NSDictionary *pageJSON in json) {
-		AZRPage *page = [self entity:[pageJSON objectForKey:@"id"] fromJSON:pageJSON inRegistry:registry];
+		AZRPage *page = [self entity:JSON_I(pageJSON, @"id") fromJSON:pageJSON inRegistry:registry];
 		pages[page.uid] = page;
 	}
 

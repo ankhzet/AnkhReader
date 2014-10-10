@@ -8,15 +8,26 @@
 
 #import "AZREntity.h"
 #import "AZREntitiesRegistry.h"
+#import "AZDataProxyContainer.h"
 
 @implementation AZREntity
+@synthesize registry = _registry, uid;
 
 + (NSString *) type {
 	return nil;
 }
 
++ (NSString *) CoreDataEntityName {
+	return [[[[self type]
+						stringByReplacingOccurrencesOfString:@"-" withString:@" "]
+					 capitalizedString]
+					stringByReplacingOccurrencesOfString:@" " withString:@""];
+}
+
 + (instancetype) newEntity:(NSNumber *)uid inRegistry:(AZREntitiesRegistry *)registry {
-	AZREntity *entity = [self new];
+	AZREntity *entity = [NSEntityDescription insertNewObjectForEntityForName:[self CoreDataEntityName]
+																										inManagedObjectContext:[[AZDataProxyContainer getInstance] managedObjectContext]];
+
 	entity.uid = uid;
 	return [registry registerEntity:entity];
 }

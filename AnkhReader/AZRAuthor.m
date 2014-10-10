@@ -9,19 +9,9 @@
 #import "AZRAuthor.h"
 #import "AZREntitiesRegistry.h"
 
-@implementation AZRAuthor {
-	NSMutableDictionary *_groups, *_pages, *_updates;
-}
-
-- (id)init {
-	if (!(self = [super init]))
-		return self;
-
-	_groups = [NSMutableDictionary dictionary];
-	_pages = [NSMutableDictionary dictionary];
-	_updates = [NSMutableDictionary dictionary];
-	return self;
-}
+@implementation AZRAuthor
+@synthesize fio, link, freq, updated;
+@dynamic groups, pages, updates;
 
 + (NSString *) type {
 	static NSString *const AuthorTypeIdentifier = @"author";
@@ -29,17 +19,17 @@
 }
 
 - (void) aquireDataFromJSON:(NSDictionary *)json inRegistry:(AZREntitiesRegistry *)registry {
-	ASSIGN_IF_NOTNULL(self.fio, [json objectForKey:@"fio"]);
-	ASSIGN_IF_NOTNULL(self.link, [json objectForKey:@"link"]);
-	ASSIGN_IF_NOTNULL(self.updated, [json objectForKey:@"time"]);
+	ASSIGN_IF_NOTNULL(self.fio, JSON_S(json, @"fio"));
+	ASSIGN_IF_NOTNULL(self.link, JSON_S(json, @"link"));
+	ASSIGN_IF_NOTNULL(self.updated, JSON_I(json, @"time"));
 
-	self.updateFreq = @0;
+	self.freq = @0;
 }
 
 + (NSDictionary *) authorsFromJSON:(NSArray *)json inRegistry:(AZREntitiesRegistry *)registry {
 	NSMutableDictionary *authors = [NSMutableDictionary dictionaryWithCapacity:[json count]];
 	for (NSDictionary *authorJSON in json) {
-		AZRAuthor *author = [self entity:[authorJSON objectForKey:@"id"] fromJSON:authorJSON inRegistry:registry];
+		AZRAuthor *author = [self entity:JSON_I(authorJSON, @"id") fromJSON:authorJSON inRegistry:registry];
 		authors[author.uid] = author;
 	}
 

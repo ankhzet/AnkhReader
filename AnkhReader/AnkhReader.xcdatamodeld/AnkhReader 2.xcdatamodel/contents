@@ -1,57 +1,59 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="12F45" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Author" syncable="YES">
+    <entity name="Author" representedClassName="AZRAuthor" parentEntity="Entity" syncable="YES">
         <attribute name="fio" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="freq" optional="YES" attributeType="Decimal" defaultValueString="0" syncable="YES"/>
         <attribute name="link" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="uid" optional="YES" attributeType="Decimal" defaultValueString="0" syncable="YES"/>
         <attribute name="updated" optional="YES" attributeType="Decimal" defaultValueString="0" syncable="YES"/>
         <relationship name="groups" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Group" inverseName="author" inverseEntity="Group" syncable="YES"/>
         <relationship name="pages" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Page" inverseName="author" inverseEntity="Page" syncable="YES"/>
         <relationship name="updates" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Update" inverseName="author" inverseEntity="Update" syncable="YES"/>
     </entity>
-    <entity name="Group" syncable="YES">
+    <entity name="Entity" representedClassName="AZREntity" syncable="YES">
+        <attribute name="uid" optional="YES" attributeType="Decimal" defaultValueString="0.0" indexed="YES" syncable="YES"/>
+    </entity>
+    <entity name="Group" representedClassName="AZRGroup" parentEntity="Entity" syncable="YES">
         <attribute name="descr" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="uid" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <relationship name="author" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Author" inverseName="groups" inverseEntity="Author" syncable="YES"/>
         <relationship name="pages" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Page" inverseName="group" inverseEntity="Page" syncable="YES"/>
         <relationship name="updates" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Update" inverseName="group" inverseEntity="Update" syncable="YES"/>
     </entity>
-    <entity name="Page" syncable="YES">
+    <entity name="Page" representedClassName="AZRPage" parentEntity="Entity" syncable="YES">
         <attribute name="descr" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="link" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="size" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="uid" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="updated" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <relationship name="author" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Author" inverseName="pages" inverseEntity="Author" syncable="YES"/>
         <relationship name="group" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Group" inverseName="pages" inverseEntity="Group" syncable="YES"/>
         <relationship name="updates" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Update" inverseName="page" inverseEntity="Update" syncable="YES"/>
-        <relationship name="versions" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PageVersions" inverseName="page" inverseEntity="PageVersions" syncable="YES"/>
+        <relationship name="versions" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PageVersion" inverseName="page" inverseEntity="PageVersion" syncable="YES"/>
     </entity>
-    <entity name="PageVersions" syncable="YES">
-        <attribute name="size" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="timestamp" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+    <entity name="PageVersion" representedClassName="AZRPageVersion" parentEntity="Entity" syncable="YES">
+        <attribute name="size" optional="YES" attributeType="Integer 64" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="timestamp" optional="YES" attributeType="Integer 64" defaultValueString="0.0" syncable="YES"/>
         <relationship name="page" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Page" inverseName="versions" inverseEntity="Page" syncable="YES"/>
     </entity>
-    <entity name="Update" syncable="YES">
+    <entity name="Update" representedClassName="AZRUpdate" parentEntity="Entity" syncable="YES">
         <attribute name="delta" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="kind" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="pub" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="value" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <relationship name="author" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Author" inverseName="updates" inverseEntity="Author" syncable="YES"/>
         <relationship name="group" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Group" inverseName="updates" inverseEntity="Group" syncable="YES"/>
         <relationship name="page" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Page" inverseName="updates" inverseEntity="Page" syncable="YES"/>
     </entity>
-    <entity name="User" syncable="YES">
+    <entity name="User" representedClassName="AZRUser" parentEntity="Entity" syncable="YES">
         <attribute name="acl" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="nickname" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
         <element name="Author" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Entity" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Group" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Page" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="PageVersions" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="PageVersion" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Update" positionX="0" positionY="0" width="0" height="0"/>
         <element name="User" positionX="0" positionY="0" width="0" height="0"/>
     </elements>

@@ -10,6 +10,7 @@
 #import "AZREntitiesRegistry.h"
 
 @implementation AZRUser
+@synthesize nickname, acl;
 
 + (NSString *) type {
 	static NSString *const UserTypeIdentifier = @"user";
@@ -17,13 +18,13 @@
 }
 
 - (void) aquireDataFromJSON:(NSDictionary *)json inRegistry:(AZREntitiesRegistry *)registry {
-	ASSIGN_IF_NOTNULL(self.nickname, [json objectForKey:@"login"]);
+	ASSIGN_IF_NOTNULL(self.nickname, JSON_S(json, @"login"));
 }
 
 + (NSDictionary *) usersFromJSON:(NSArray *)json inRegistry:(AZREntitiesRegistry *)registry {
 	NSMutableDictionary *users = [NSMutableDictionary dictionaryWithCapacity:[json count]];
 	for (NSDictionary *userJSON in json) {
-		AZRUser *user = [self entity:[userJSON objectForKey:@"id"] fromJSON:userJSON inRegistry:registry];
+		AZRUser *user = [self entity:JSON_I(userJSON, @"id") fromJSON:userJSON inRegistry:registry];
 		users[user.uid] = user;
 	}
 

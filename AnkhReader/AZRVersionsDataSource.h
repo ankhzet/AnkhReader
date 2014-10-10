@@ -12,6 +12,6 @@
 
 @property (nonatomic) NSArray *data;
 
-- (void) setOrderedData:(NSDictionary *)data;
+- (void) setOrderedData:(NSSet *)data;
 
 @end

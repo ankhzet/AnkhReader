@@ -10,26 +10,20 @@
 #import "AZREntities.h"
 
 @implementation AZRPageVersion
+@synthesize zipped, timestamp, size;
+@dynamic page;
 
 + (NSString *) type {
 	static NSString *const PageVersionTypeIdentifier = @"page-version";
 	return PageVersionTypeIdentifier;
 }
 
-- (void) setPage:(AZRPage *)page {
-	if (_page == page)
-		return;
-
-	_page = page;
-	_page.versions[self.uid] = self;
-}
-
 - (void) aquireDataFromJSON:(NSDictionary *)json inRegistry:(AZREntitiesRegistry *)registry {
 	ASSIGN_IF_NOTNULL(self.page, REGISTERED_ENTITY(AZRPage, registry, json, @"page"));
 
-	ASSIGN_IF_NOTNULL(self.timestamp, [[json objectForKey:@"timestamp"] unsignedIntegerValue]);
-	ASSIGN_IF_NOTNULL(self.size, [[json objectForKey:@"size"] unsignedIntegerValue]);
-	ASSIGN_IF_NOTNULL(self.zipped, [[json objectForKey:@"zipped"] unsignedIntegerValue]);
+	ASSIGN_IF_NOTNULL(self.timestamp, JSON_I(json, @"timestamp"));
+	ASSIGN_IF_NOTNULL(self.size, JSON_I(json, @"size"));
+	ASSIGN_IF_NOTNULL(self.zipped, JSON_I(json, @"zipped"));
 }
 
 + (NSDictionary *) pageVersionsFromJSON:(NSArray *)json inRegistry:(AZREntitiesRegistry *)registry {
@@ -38,8 +32,8 @@
 
 	NSMutableDictionary *versions = [NSMutableDictionary dictionaryWithCapacity:[json count]];
 	for (NSDictionary *versionJSON in json) {
-		NSNumber *page = [versionJSON objectForKey:@"page"];
-		NSNumber *uid = [versionJSON objectForKey:@"timestamp"];
+		NSNumber *page = JSON_I(versionJSON, @"page");
+		NSNumber *uid = JSON_I(versionJSON, @"timestamp");
 		double floatPage = [page unsignedIntegerValue];
 		double fracTime = [uid unsignedIntegerValue];
 		fracTime = (fracTime - dateRef) / denom;
@@ -49,6 +43,10 @@
 	}
 
 	return versions;
+}
+
+- (NSString *) description {
+	return [NSString stringWithFormat:@"{Version@%@(%@): %@, %@ KB (zipped to %@ KB)}", self.page.uid, self.timestamp, self.page.title, self.size, self.zipped];
 }
 
 

@@ -8,15 +8,22 @@
 
 #import "AZRVersionsDataSource.h"
 #import "AZRVersionCellView.h"
+#import "AZRPageVersion.h"
 
 @implementation AZRVersionsDataSource
 
-- (void) setOrderedData:(NSDictionary *)data {
-	NSMutableArray *ordered = [NSMutableArray array];
+- (void) setOrderedData:(NSSet *)data {
+	NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithCapacity:[data count]];
+	NSMutableArray *uids = [NSMutableArray arrayWithCapacity:[data count]];
+	for (AZRPageVersion *v in data) {
+		[uids addObject:v.uid];
+		dic[v.uid] = v;
+	}
 
-	NSArray *orderedKeys = [[data allKeys] sortedArrayUsingSelector:@selector(compare:)];
+	NSMutableArray *ordered = [NSMutableArray arrayWithCapacity:[data count]];
+	NSArray *orderedKeys = [uids sortedArrayUsingSelector:@selector(compare:)];
 	for (NSNumber *idx in [orderedKeys reverseObjectEnumerator]) {
-    [ordered addObject:data[idx]];
+    [ordered addObject:dic[idx]];
 	}
 
 	self.data = ordered;

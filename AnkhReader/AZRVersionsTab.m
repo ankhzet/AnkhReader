@@ -77,7 +77,7 @@
 }
 
 - (void) retriveVersions {
-	[pagesAPI aquirePageVersions:page withCompletion:^(NSDictionary *_versions) {
+	[pagesAPI aquirePageVersions:page withCompletion:^(NSSet *_versions) {
 		[versions setOrderedData:_versions];
 		[AZRAPILayer onMain:^{
 			[self.tvVersions reloadData];

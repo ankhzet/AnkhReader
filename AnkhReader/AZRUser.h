@@ -10,7 +10,8 @@
 
 @interface AZRUser : AZREntity
 
-@property (nonatomic) NSString *nickname;
+@property (nonatomic, retain) NSString *nickname;
+@property (nonatomic, retain) NSNumber *acl;
 
 + (NSDictionary *) usersFromJSON:(NSArray *)json inRegistry:(AZREntitiesRegistry *)registry;
 

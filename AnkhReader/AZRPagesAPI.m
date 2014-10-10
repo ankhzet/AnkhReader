@@ -17,7 +17,7 @@
 	NSNumber *nuid = @(uid);
 	__block AZRPage *page = [AZREntitiesRegistry hasEntity:nuid withType:[AZRPage type]];
 
-	if (page.detailsLoaded) {
+	if (page) {
 		block(page);
 		return nil;
 	}
@@ -37,8 +37,8 @@
 	return [self queue:pageRequest withType:AZAPIRequestTypeDefault];
 }
 
-- (AZHTTPRequest *) aquirePageVersions:(AZRPage *)page withCompletion:(void(^)(NSDictionary *versions))block {
-	NSMutableDictionary *pageVersions = page.versions;
+- (AZHTTPRequest *) aquirePageVersions:(AZRPage *)page withCompletion:(void(^)(NSSet *versions))block {
+	NSSet *pageVersions = page.versions;
 
 	if (pageVersions.count) {
 		block(pageVersions);
@@ -48,7 +48,8 @@
 	AZJSONRequest *versionsRequest = [self action:@"page-versions"];
 	[versionsRequest setParameters:@{@"page": page.uid}];
 	[[versionsRequest success:^(AZHTTPRequest *request, id *data) {
-		block([AZRPageVersion pageVersionsFromJSON:*data inRegistry:[AZREntitiesRegistry getInstance]]);
+		NSArray *versions = [[AZRPageVersion pageVersionsFromJSON:*data inRegistry:[AZREntitiesRegistry getInstance]] allValues];
+		block([NSSet setWithArray:versions]);
 		return YES;
 	}] error:^BOOL(AZHTTPRequest *action, NSString *response) {
 		block(nil);

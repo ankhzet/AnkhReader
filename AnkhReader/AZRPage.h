@@ -11,18 +11,17 @@
 @class AZRAuthor, AZRGroup;
 @interface AZRPage : AZREntity
 
-@property (nonatomic, weak) AZRAuthor *author;
-@property (nonatomic, weak) AZRGroup *group;
+@property (nonatomic, retain) AZRAuthor *author;
+@property (nonatomic, retain) AZRGroup *group;
 
-@property (nonatomic) NSString *title;
-@property (nonatomic) NSString *link;
-@property (nonatomic) NSString *descr;
-@property (nonatomic) NSUInteger updated;
-@property (nonatomic) NSUInteger size;
-@property (nonatomic) BOOL detailsLoaded;
+@property (nonatomic, retain) NSString *title;
+@property (nonatomic, retain) NSString *link;
+@property (nonatomic, retain) NSString *descr;
+@property (nonatomic, retain) NSNumber *updated;
+@property (nonatomic, retain) NSNumber *size;
 
-@property (nonatomic) NSMutableDictionary *updates;
-@property (nonatomic) NSMutableDictionary *versions;
+@property (nonatomic, retain) NSSet *updates;
+@property (nonatomic, retain) NSSet *versions;
 
 
 + (NSDictionary *) pagesFromJSON:(NSArray *)json inRegistry:(AZREntitiesRegistry *)registry;

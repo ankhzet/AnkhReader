@@ -13,9 +13,9 @@
 
 - (void) configureForEntity:(id)_entity inOutlineView:(NSOutlineView *)view {
 	AZRPageVersion *entity = _entity;
-	self.tfTimestamp.objectValue = [NSDate dateWithTimeIntervalSince1970:entity.timestamp];
-	self.tfSize.objectValue = @(entity.size * 1024);
-	self.tfSizeZipped.objectValue = @(entity.zipped * 1024);
+	self.tfTimestamp.objectValue = [NSDate dateWithTimeIntervalSince1970:[entity.timestamp unsignedIntegerValue]];
+	self.tfSize.objectValue = @([entity.size unsignedIntegerValue] * 1024);
+	self.tfSizeZipped.objectValue = @([entity.zipped unsignedIntegerValue] * 1024);
 }
 
 @end

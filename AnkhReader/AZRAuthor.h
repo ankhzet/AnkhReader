@@ -10,14 +10,14 @@
 
 @interface AZRAuthor : AZREntity
 
-@property (nonatomic) NSString *fio;
-@property (nonatomic) NSString *link;
-@property (nonatomic) NSNumber *updated;
-@property (nonatomic) NSNumber *updateFreq;
+@property (nonatomic, retain) NSString *fio;
+@property (nonatomic, retain) NSString *link;
+@property (nonatomic, retain) NSNumber *updated;
+@property (nonatomic, retain) NSNumber *freq;
 
-@property (nonatomic) NSMutableDictionary *groups;
-@property (nonatomic) NSMutableDictionary *pages;
-@property (nonatomic) NSMutableDictionary *updates;
+@property (nonatomic, retain) NSSet *groups;
+@property (nonatomic, retain) NSSet *pages;
+@property (nonatomic, retain) NSSet *updates;
 
 + (NSDictionary *) authorsFromJSON:(NSArray *)json inRegistry:(AZREntitiesRegistry *)registry;
 
