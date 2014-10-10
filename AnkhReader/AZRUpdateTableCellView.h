@@ -17,5 +17,6 @@
 @property (weak) IBOutlet NSTextField *tfTitle;
 @property (weak) IBOutlet NSTextField *tfDelta;
 @property (weak) IBOutlet NSTextField *tfTime;
+@property (weak) IBOutlet NSButton *bDisclosure;
 
 @end

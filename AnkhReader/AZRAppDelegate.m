@@ -32,7 +32,6 @@
 
 	[AZDataProxyContainer initInstance:storage];
 	[storage subscribeForUpdateNotifications:self selector:@selector(synkNotification:)];
-	[storage synkToggled];
 
 	tabs = [[AZRTabsGroup alloc] initWithTabView:self.tvTabs];
 	[tabs registerTab:[AZRLoginTab class]];
@@ -42,6 +41,8 @@
 	tabs.delegate = self;
 
 	[tabs navigateTo:AZRUIDLoginTab withNavData:nil];
+
+	[storage synkToggled];
 }
 
 - (NSToolbarItem *) toolbar:(NSToolbar *)toolbar itemWithIdentifier:(NSString *)identifier {
@@ -95,6 +96,10 @@
 
 - (BOOL) applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender {
 	return YES;
+}
+
+- (void) applicationWillTerminate:(NSNotification *)notification {
+	[self saveAction:nil];
 }
 
 @end

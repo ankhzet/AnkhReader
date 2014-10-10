@@ -27,6 +27,7 @@
 	entity = _entity;
 	self.tfTitle.stringValue = [[NSString stringWithFormat:@"%@", /*entity.group.title,*/ entity.page.title] cvtHTMLEntities];
 
+	BOOL hasVersions = NO;
 	BOOL isGrow = [entity.delta integerValue] > 0;
 	NSString *sign = isGrow ? @"+" : @"";
 	NSString *size = [NSString stringWithFormat:@"%@%@Кб", sign, entity.delta];
@@ -34,6 +35,7 @@
 		case AZRUpdateKindPageAdded: {
 			self.tfDelta.textColor = [NSColor blueColor];
 			size = [NSString stringWithFormat:@"новый (%@)", size];
+			hasVersions = YES;
 			break;
 		}
 		case AZRUpdateKindPageSizeDiff: {
@@ -42,6 +44,7 @@
 				size = [NSString stringWithFormat:@"удалено (%@)", size];
 			} else
 				self.tfDelta.textColor = isGrow ? [NSColor darkGreenColor] : [NSColor redColor];
+			hasVersions = YES;
 			break;
 		}
 		case AZRUpdateKindDelete:
@@ -73,6 +76,8 @@
 	self.tfDelta.stringValue = size;
 
 	self.tfTime.stringValue = entity.pub;
+
+	[self.bDisclosure setHidden:!hasVersions];
 }
 
 @end

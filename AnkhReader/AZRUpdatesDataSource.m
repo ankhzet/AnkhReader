@@ -210,7 +210,7 @@
 }
 
 - (CGFloat)outlineView:(NSOutlineView *)outlineView heightOfRowByItem:(id)item {
-	return ([CustomDictionary isDictionary:item] || [item isKindOfClass:[NSOutlineView class]]) ? 20.f : 41.f;
+	return ([CustomDictionary isDictionary:item] || [item isKindOfClass:[NSOutlineView class]]) ? 20.f : 42.f;
 }
 
 
