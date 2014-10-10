@@ -8,20 +8,20 @@
 //
 
 #import "Kiwi.h"
-#import "AZRAPILayer.h"
+#import "AZClientAPI.h"
 #import "AZRAPIAction.h"
 
 SPEC_BEGIN(AZRAPILayerSpec)
 
 describe(@"AZRAPILayer", ^{
 	it(@"should properly initialize", ^{
-		AZRAPILayer *instance = [AZRAPILayer new];
+		AZClientAPI *instance = [AZClientAPI new];
 		[[instance shouldNot] beNil];
-		[[instance should] beKindOfClass:[AZRAPILayer class]];
+		[[instance should] beKindOfClass:[AZClientAPI class]];
 	});
 
 	it(@"should well form api uri's", ^{
-		AZRAPILayer *api = [AZRAPILayer new];
+		AZClientAPI *api = [AZClientAPI new];
 
 		AZRAPIAction *action = [api action:@"users"];
 		[[action shouldNot] beNil];

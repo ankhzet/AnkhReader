@@ -1,6 +1,6 @@
 //
 //  AZRAPIAction.h
-//  AnkhReader
+//  AZClientAPI
 //
 //  Created by Ankh on 20.07.14.
 //  Copyright (c) 2014 Ankh. All rights reserved.

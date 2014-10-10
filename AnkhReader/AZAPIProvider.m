@@ -1,13 +1,13 @@
 //
 //  AZAPIProvider.m
-//  SLEditor
+//  AZClientAPI
 //
 //  Created by Ankh on 29.03.14.
 //  Copyright (c) 2014 Ankh. All rights reserved.
 //
 
 #import "AZAPIProvider.h"
-#import "AZRAPILayer.h"
+#import "AZClientAPI.h"
 
 #define QUEUE_IMPERATIVE  @0
 #define QUEUE_CONSICUTIVE @1
@@ -40,7 +40,7 @@
 }
 
 - (id) API:(Class)apiHandlerClass {
-	AZRAPILayer *api = apis[apiHandlerClass];
+	AZClientAPI *api = apis[apiHandlerClass];
 	if (!api) {
 		api = [apiHandlerClass new];
 		api.apiProvider = self;
@@ -48,7 +48,7 @@
 	return api;
 }
 
-- (AZHTTPRequest *) queueRequest:(AZHTTPRequest *)request withType:(AZAPIRequestType)type forAPI:(AZRAPILayer *)api {
+- (AZHTTPRequest *) queueRequest:(AZHTTPRequest *)request withType:(AZAPIRequestType)type forAPI:(AZClientAPI *)api {
 	NSMutableDictionary *queue = masterQueue[QUEUE_IMPERATIVE];
 	if (!queue) queue = masterQueue[QUEUE_IMPERATIVE] = [NSMutableDictionary dictionary];
 

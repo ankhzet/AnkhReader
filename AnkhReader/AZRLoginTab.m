@@ -78,7 +78,7 @@
 			[ud setObject:login forKey:DEF_LOGIN];
 			[ud setObject:password forKey:DEF_PASSWORD];
 
-			[AZRAPILayer onMain:^{
+			[AZClientAPI onMain:^{
 				[[self tabs] navigateTo:AZRUIDUpdatesTab withNavData:user];
 			} synk:NO];
 			return;

@@ -1,16 +1,16 @@
 //
-//  AZRAPILayer.m
-//  AnkhReader
+//  AZClientAPI.m
+//  AZClientAPI
 //
 //  Created by Ankh on 20.07.14.
 //  Copyright (c) 2014 Ankh. All rights reserved.
 //
 
-#import "AZRAPILayer.h"
+#import "AZClientAPI.h"
 #import "AZAPIProvider.h"
 #import "AZHTTPRequest.h"
 
-@implementation AZRAPILayer
+@implementation AZClientAPI
 
 - (id) action:(NSString *)actionName {
 	return [AZHTTPRequest actionWithName:actionName];

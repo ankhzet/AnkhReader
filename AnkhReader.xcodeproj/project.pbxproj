@@ -30,7 +30,7 @@
 		0A5950B8197C387000B9F60D /* AZSynkEnabledStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A5950B2197C387000B9F60D /* AZSynkEnabledStorage.m */; };
 		0A5950BA197C387000B9F60D /* DataProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A5950B6197C387000B9F60D /* DataProxy.m */; };
 		0A5950BE197C391000B9F60D /* AZUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A5950BD197C391000B9F60D /* AZUtils.m */; };
-		0A5950C1197C428C00B9F60D /* AZRAPILayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A5950C0197C428C00B9F60D /* AZRAPILayer.m */; };
+		0A5950C1197C428C00B9F60D /* AZClientAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A5950C0197C428C00B9F60D /* AZClientAPI.m */; };
 		0A5950C5197C42C400B9F60D /* AZRAPILayerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A5950C4197C42C400B9F60D /* AZRAPILayerSpec.m */; };
 		0A5950CC197C946900B9F60D /* AZRAuthorsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A5950CB197C946900B9F60D /* AZRAuthorsDataSource.m */; };
 		0A5950CF197CA22700B9F60D /* AZRAuthorTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A5950CE197CA22700B9F60D /* AZRAuthorTableCellView.m */; };
@@ -51,7 +51,7 @@
 		0AAF340C18E5EB0E00424B4C /* NSArray+AnkhUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAF340B18E5EB0E00424B4C /* NSArray+AnkhUtils.m */; };
 		0AAF340F18E5F03A00424B4C /* AZJSONRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAF340E18E5F03A00424B4C /* AZJSONRequest.m */; };
 		0AAF341218E5F06900424B4C /* AZHTMLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAF341118E5F06900424B4C /* AZHTMLRequest.m */; };
-		0AAF341618E5F3D400424B4C /* AZRJSONAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAF341518E5F3D400424B4C /* AZRJSONAPI.m */; };
+		0AAF341618E5F3D400424B4C /* AZJSONAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAF341518E5F3D400424B4C /* AZJSONAPI.m */; };
 		0AAF341918E5F84800424B4C /* AZRLoginTab.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAF341818E5F84800424B4C /* AZRLoginTab.m */; };
 		0AAF341B18E5F86500424B4C /* tabLogin.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AAF341A18E5F86500424B4C /* tabLogin.xib */; };
 		0AAF341E18E5FF0D00424B4C /* AZAPIProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAF341D18E5FF0D00424B4C /* AZAPIProvider.m */; };
@@ -121,8 +121,8 @@
 		0A5950B6197C387000B9F60D /* DataProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataProxy.m; sourceTree = "<group>"; };
 		0A5950BC197C391000B9F60D /* AZUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZUtils.h; sourceTree = "<group>"; };
 		0A5950BD197C391000B9F60D /* AZUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZUtils.m; sourceTree = "<group>"; };
-		0A5950BF197C428C00B9F60D /* AZRAPILayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRAPILayer.h; sourceTree = "<group>"; };
-		0A5950C0197C428C00B9F60D /* AZRAPILayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRAPILayer.m; sourceTree = "<group>"; };
+		0A5950BF197C428C00B9F60D /* AZClientAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZClientAPI.h; sourceTree = "<group>"; };
+		0A5950C0197C428C00B9F60D /* AZClientAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZClientAPI.m; sourceTree = "<group>"; };
 		0A5950C4197C42C400B9F60D /* AZRAPILayerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRAPILayerSpec.m; sourceTree = "<group>"; };
 		0A5950CA197C946900B9F60D /* AZRAuthorsDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRAuthorsDataSource.h; sourceTree = "<group>"; };
 		0A5950CB197C946900B9F60D /* AZRAuthorsDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRAuthorsDataSource.m; sourceTree = "<group>"; };
@@ -163,8 +163,8 @@
 		0AAF340E18E5F03A00424B4C /* AZJSONRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZJSONRequest.m; sourceTree = "<group>"; };
 		0AAF341018E5F06900424B4C /* AZHTMLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZHTMLRequest.h; sourceTree = "<group>"; };
 		0AAF341118E5F06900424B4C /* AZHTMLRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZHTMLRequest.m; sourceTree = "<group>"; };
-		0AAF341418E5F3D400424B4C /* AZRJSONAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRJSONAPI.h; sourceTree = "<group>"; };
-		0AAF341518E5F3D400424B4C /* AZRJSONAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRJSONAPI.m; sourceTree = "<group>"; };
+		0AAF341418E5F3D400424B4C /* AZJSONAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZJSONAPI.h; sourceTree = "<group>"; };
+		0AAF341518E5F3D400424B4C /* AZJSONAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZJSONAPI.m; sourceTree = "<group>"; };
 		0AAF341718E5F84800424B4C /* AZRLoginTab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRLoginTab.h; sourceTree = "<group>"; };
 		0AAF341818E5F84800424B4C /* AZRLoginTab.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRLoginTab.m; sourceTree = "<group>"; };
 		0AAF341A18E5F86500424B4C /* tabLogin.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = tabLogin.xib; sourceTree = "<group>"; };
@@ -218,11 +218,8 @@
 		0A272C8218E20326008070DE /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				0A59508D197C370C00B9F60D /* MainMenu.xib */,
-				0AAF341A18E5F86500424B4C /* tabLogin.xib */,
-				0A272C8318E2035F008070DE /* tabUpdates.xib */,
-				0AFC9E2418E220520050C53F /* tabVersions.xib */,
 				0AAF343218E6EA9C00424B4C /* tabPreferences.xib */,
+				0A92F9FC19E7120400ABA57A /* Views */,
 				0A7A8665197D4A5200E80B98 /* Table views */,
 				0A40064F18E36F3100746C2D /* Tab Provider */,
 			);
@@ -317,14 +314,14 @@
 		0A59507E197C370B00B9F60D /* AnkhReader */ = {
 			isa = PBXGroup;
 			children = (
-				0A56B91A18E35544003D170D /* Utils */,
 				0A59508A197C370B00B9F60D /* AZRAppDelegate.h */,
 				0A59508B197C370B00B9F60D /* AZRAppDelegate.m */,
+				0A56B91A18E35544003D170D /* Utils */,
 				0A272C8218E20326008070DE /* UI */,
-				0A5950C6197C436C00B9F60D /* Ankhzet API */,
-				0A5950BB197C387600B9F60D /* Core Data stack */,
+				0A5950C6197C436C00B9F60D /* AnkhZet ClientAPI core */,
+				0A92F9FD19E7123A00ABA57A /* AnkhZet Behavioral */,
+				0A92F9FB19E711E800ABA57A /* Data storages */,
 				0A595093197C370C00B9F60D /* Images.xcassets */,
-				0A595090197C370C00B9F60D /* AnkhReader.xcdatamodeld */,
 				0A59507F197C370B00B9F60D /* Supporting Files */,
 			);
 			path = AnkhReader;
@@ -373,21 +370,17 @@
 			name = "Core Data stack";
 			sourceTree = "<group>";
 		};
-		0A5950C6197C436C00B9F60D /* Ankhzet API */ = {
+		0A5950C6197C436C00B9F60D /* AnkhZet ClientAPI core */ = {
 			isa = PBXGroup;
 			children = (
-				0A5950BF197C428C00B9F60D /* AZRAPILayer.h */,
-				0A5950C0197C428C00B9F60D /* AZRAPILayer.m */,
-				0AAF341418E5F3D400424B4C /* AZRJSONAPI.h */,
-				0AAF341518E5F3D400424B4C /* AZRJSONAPI.m */,
+				0A5950BF197C428C00B9F60D /* AZClientAPI.h */,
+				0A5950C0197C428C00B9F60D /* AZClientAPI.m */,
 				0AAF341C18E5FF0D00424B4C /* AZAPIProvider.h */,
 				0AAF341D18E5FF0D00424B4C /* AZAPIProvider.m */,
 				0AAF341318E5F06D00424B4C /* HTTP Requests */,
-				0AAF33FD18E5E71300424B4C /* Actions */,
-				0A5950D5197CD9AD00B9F60D /* AnkhZet Entities */,
 				0A92F9FA19E7111D00ABA57A /* JSON */,
 			);
-			name = "Ankhzet API";
+			name = "AnkhZet ClientAPI core";
 			sourceTree = "<group>";
 		};
 		0A5950D5197CD9AD00B9F60D /* AnkhZet Entities */ = {
@@ -441,8 +434,41 @@
 			children = (
 				0A92F9F719E70FED00ABA57A /* AZJSONUtils.h */,
 				0A92F9F819E7101100ABA57A /* AZJSONUtils.m */,
+				0AAF341418E5F3D400424B4C /* AZJSONAPI.h */,
+				0AAF341518E5F3D400424B4C /* AZJSONAPI.m */,
+				0AAF340D18E5F03A00424B4C /* AZJSONRequest.h */,
+				0AAF340E18E5F03A00424B4C /* AZJSONRequest.m */,
 			);
 			name = JSON;
+			sourceTree = "<group>";
+		};
+		0A92F9FB19E711E800ABA57A /* Data storages */ = {
+			isa = PBXGroup;
+			children = (
+				0A595090197C370C00B9F60D /* AnkhReader.xcdatamodeld */,
+				0A5950BB197C387600B9F60D /* Core Data stack */,
+			);
+			name = "Data storages";
+			sourceTree = "<group>";
+		};
+		0A92F9FC19E7120400ABA57A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0A59508D197C370C00B9F60D /* MainMenu.xib */,
+				0AAF341A18E5F86500424B4C /* tabLogin.xib */,
+				0A272C8318E2035F008070DE /* tabUpdates.xib */,
+				0AFC9E2418E220520050C53F /* tabVersions.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		0A92F9FD19E7123A00ABA57A /* AnkhZet Behavioral */ = {
+			isa = PBXGroup;
+			children = (
+				0AAF33FD18E5E71300424B4C /* Actions */,
+				0A5950D5197CD9AD00B9F60D /* AnkhZet Entities */,
+			);
+			name = "AnkhZet Behavioral";
 			sourceTree = "<group>";
 		};
 		0AAF33FD18E5E71300424B4C /* Actions */ = {
@@ -465,8 +491,6 @@
 			children = (
 				0AAF340418E5EA6C00424B4C /* AZHTTPRequest.h */,
 				0AAF340518E5EA6C00424B4C /* AZHTTPRequest.m */,
-				0AAF340D18E5F03A00424B4C /* AZJSONRequest.h */,
-				0AAF340E18E5F03A00424B4C /* AZJSONRequest.m */,
 				0AAF341018E5F06900424B4C /* AZHTMLRequest.h */,
 				0AAF341118E5F06900424B4C /* AZHTMLRequest.m */,
 			);
@@ -657,10 +681,10 @@
 				0AAF340F18E5F03A00424B4C /* AZJSONRequest.m in Sources */,
 				0A5950BE197C391000B9F60D /* AZUtils.m in Sources */,
 				0A5950D4197CD9A400B9F60D /* AZRAuthor.m in Sources */,
-				0A5950C1197C428C00B9F60D /* AZRAPILayer.m in Sources */,
+				0A5950C1197C428C00B9F60D /* AZClientAPI.m in Sources */,
 				0A7A866B197D4CE400E80B98 /* AZRUpdatesDataSource.m in Sources */,
 				0AAF340918E5EA8D00424B4C /* NSURL+AnkhUtils.m in Sources */,
-				0AAF341618E5F3D400424B4C /* AZRJSONAPI.m in Sources */,
+				0AAF341618E5F3D400424B4C /* AZJSONAPI.m in Sources */,
 				0A92F9F919E7101100ABA57A /* AZJSONUtils.m in Sources */,
 				0AAF340018E5E73300424B4C /* AZRUserAPI.m in Sources */,
 				0AAF342E18E6AC9B00424B4C /* AZRVersionsDataSource.m in Sources */,

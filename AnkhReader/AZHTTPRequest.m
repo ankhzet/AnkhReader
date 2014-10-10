@@ -1,6 +1,6 @@
 //
 //  AZRAPIAction.m
-//  AnkhReader
+//  AZClientAPI
 //
 //  Created by Ankh on 20.07.14.
 //  Copyright (c) 2014 Ankh. All rights reserved.
@@ -10,7 +10,7 @@
 //#import "TFHpple.h"
 
 #define API_USER_AGENT @"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.7; rv:12.0) Gecko/20100101 Firefox/12.0"
-//@"AnkhZet SamLib Editor's client v0.1"
+//@"AnkhZet client v0.1"
 
 @implementation AZHTTPRequest
 

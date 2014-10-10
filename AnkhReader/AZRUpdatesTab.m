@@ -70,7 +70,7 @@
 
 		authors.data = _authors;
 
-		[AZRAPILayer onMain:^{
+		[AZClientAPI onMain:^{
 			[self.authorsTableView reloadData];
 			[self retriveUpdates];
 		} synk:NO];
@@ -87,7 +87,7 @@
 		updates.data = _updates;
 		[authors rearrangeBy:AUTHOR_UPDATES_COLLUMN];
 
-		[AZRAPILayer onMain:^{
+		[AZClientAPI onMain:^{
 			[self.outlineView reloadData];
 			[self.outlineView expandItem:nil expandChildren:YES];
 			[self.authorsTableView reloadData];

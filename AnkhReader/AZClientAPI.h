@@ -1,6 +1,6 @@
 //
-//  AZRAPILayer.h
-//  AnkhReader
+//  AZClientAPI.h
+//  AZClientAPI
 //
 //  Created by Ankh on 20.07.14.
 //  Copyright (c) 2014 Ankh. All rights reserved.
@@ -11,7 +11,7 @@
 
 @class AZAPIProvider;
 
-@interface AZRAPILayer : NSObject
+@interface AZClientAPI : NSObject
 @property (nonatomic, weak) AZAPIProvider *apiProvider;
 
 + (void) onMain:(dispatch_block_t)block synk:(BOOL)synk;

@@ -6,10 +6,10 @@
 //  Copyright (c) 2014 Ankh. All rights reserved.
 //
 
-#import "AZRJSONAPI.h"
+#import "AZJSONAPI.h"
 
 @class AZRPage, AZRPageVersion;
-@interface AZRPagesAPI : AZRJSONAPI
+@interface AZRPagesAPI : AZJSONAPI
 
 - (AZHTTPRequest *) aquirePage:(NSUInteger)uid withCompletion:(void(^)(AZRPage *page))block;
 - (AZHTTPRequest *) aquirePageVersions:(AZRPage *)page withCompletion:(void(^)(NSSet *versions))block;

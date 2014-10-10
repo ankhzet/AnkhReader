@@ -10,7 +10,7 @@
 #import "AZRTabsCommons.h"
 
 #import "AZJSONRequest.h"
-#import "AZRJSONAPI.h"
+#import "AZJSONAPI.h"
 
 #import "AZREntities.h"
 
@@ -62,7 +62,7 @@
 - (void) pickPage:(NSUInteger)uid {
 	[pagesAPI aquirePage:uid withCompletion:^(AZRPage *_page) {
 		page = _page;
-		[AZRAPILayer onMain:^{
+		[AZClientAPI onMain:^{
 			self.tfAuthor.stringValue = [NSString stringWithFormat:@"%@", page.author.fio];
 			self.tfGroup.stringValue = [NSString stringWithFormat:@"↳ %@", page.group.title];
 			self.tfPage.stringValue = [NSString stringWithFormat:@"↳ %@", page.title];
@@ -79,7 +79,7 @@
 - (void) retriveVersions {
 	[pagesAPI aquirePageVersions:page withCompletion:^(NSSet *_versions) {
 		[versions setOrderedData:_versions];
-		[AZRAPILayer onMain:^{
+		[AZClientAPI onMain:^{
 			[self.tvVersions reloadData];
 		} synk:NO];
 	}];

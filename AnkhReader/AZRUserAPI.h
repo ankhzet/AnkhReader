@@ -6,10 +6,10 @@
 //  Copyright (c) 2014 Ankh. All rights reserved.
 //
 
-#import "AZRJSONAPI.h"
+#import "AZJSONAPI.h"
 
 @class AZRUser;
-@interface AZRUserAPI : AZRJSONAPI
+@interface AZRUserAPI : AZJSONAPI
 
 - (AZHTTPRequest *) loginWithParams:(NSDictionary *)params withCompletion:(void(^)(id data))block;
 
