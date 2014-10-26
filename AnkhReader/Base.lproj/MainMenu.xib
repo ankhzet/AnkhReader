@@ -17,6 +17,13 @@
                 <menuItem title="AnkhReader" id="56">
                     <menu key="submenu" title="AnkhReader" systemMenu="apple" id="57">
                         <items>
+                            <menuItem title="Login..." id="TdW-5p-X1m">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="actionShowLoginTab:" target="494" id="TlT-jB-ohN"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="4kh-Mn-3D6"/>
                             <menuItem title="About AnkhReader" id="58">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>

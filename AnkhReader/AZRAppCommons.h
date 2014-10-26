@@ -9,6 +9,11 @@
 #ifndef AnkhReader_AZRAppCommons_h
 #define AnkhReader_AZRAppCommons_h
 
+#import <Utils/AZUtils.h>
+
+//#define API_ACTION_BASE_URL @"http://ankhzet.esy.es/api/client/"
+#define API_ACTION_BASE_URL @"http://ankhzet.ua/api/client/"
+
 
 #define PREF_SAVE_STR(_string, _pref_key) \
 	[[NSUserDefaults standardUserDefaults] setObject:(_string) forKey:(_pref_key)];
@@ -17,7 +22,7 @@
 	[[NSUserDefaults standardUserDefaults] setBool:!!_bool forKey:(_pref_key)];
 
 #define PREF_SAVE_UI_STR(_string, _pref_key) \
-	PREF_SAVE_STR((_string.stringValue, _pref_key) \
+	PREF_SAVE_STR((_string).stringValue, _pref_key) 
 
 #define PREF_SAVE_UI_BOOL(_checkbox, _pref_key) \
 	PREF_SAVE_BOOL(([(_checkbox) state] == NSOnState), _pref_key)

@@ -31,9 +31,9 @@
 
 	autologin = PREF_BOOL(DEF_USER_LOGIN_AUTOMATICALY);
 	[self.cbLoginAutomaticaly setState:autologin ? NSOnState : NSOffState];
+	autologin &= ![self.navData boolValue];
 
-	BOOL asGuest = PREF_BOOL(DEF_USER_LOGIN_AS_GUEST);
-	[self.cbLoginAsGuest setState:asGuest ? NSOnState : NSOffState];
+	[self setLoginAsGuest:PREF_BOOL(DEF_USER_LOGIN_AS_GUEST)];
 
 	if (autologin) {
 		double delayInSeconds = 0;//2.0;
@@ -102,9 +102,8 @@
 	[self login:NO];
 }
 
-- (IBAction)actionLoginAsGuestChecked:(id)sender {
-	BOOL asGuest = [self loginAsGuest];
-
+- (void) setLoginAsGuest:(BOOL)asGuest {
+	[self.cbLoginAsGuest setState:asGuest ? NSOnState : NSOffState];
 	[self.tfLogin setEnabled:!asGuest];
 	[self.tfPassword setEnabled:!asGuest];
 
@@ -116,11 +115,15 @@
 		self.tfPassword.stringValue = PREF_STR(DEF_USER_PASSWORD);
 	}
 
-	PREF_SAVE_BOOL(self.cbLoginAsGuest, DEF_USER_LOGIN_AS_GUEST);
+	PREF_SAVE_UI_BOOL(self.cbLoginAsGuest, DEF_USER_LOGIN_AS_GUEST);
+}
+
+- (IBAction)actionLoginAsGuestChecked:(id)sender {
+	[self setLoginAsGuest:[self loginAsGuest]];
 }
 
 - (IBAction)actionLoginAutomaticalyChecked:(id)sender {
-	PREF_SAVE_BOOL(self.cbLoginAutomaticaly, DEF_USER_LOGIN_AUTOMATICALY);
+	PREF_SAVE_UI_BOOL(self.cbLoginAutomaticaly, DEF_USER_LOGIN_AUTOMATICALY);
 }
 
 - (IBAction)actionUserLoginChanged:(id)sender {

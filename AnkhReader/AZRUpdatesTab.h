@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Ankh. All rights reserved.
 //
 
-#import "AZRTabProvider.h"
+#import "AZTabProvider.h"
 
-@interface AZRUpdatesTab : AZRTabProvider
+@interface AZRUpdatesTab : AZTabProvider
 
 @property (weak) IBOutlet NSTableView *authorsTableView;
 @property (weak) IBOutlet NSOutlineView *outlineView;

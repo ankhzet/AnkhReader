@@ -131,8 +131,8 @@ NSString *const kDPParameterSyncDirectory = @"kDPParameterSyncDirectory";
 	// automigrate
 	NSDictionary *options =
 	@{
-		NSMigratePersistentStoresAutomaticallyOption:@YES,
-		NSInferMappingModelAutomaticallyOption:@YES
+		//NSMigratePersistentStoresAutomaticallyOption:@YES,
+		//NSInferMappingModelAutomaticallyOption:@YES
 		};
 
 	[coordinator lock];
@@ -158,8 +158,9 @@ NSString *const kDPParameterSyncDirectory = @"kDPParameterSyncDirectory";
 
 		 If you encounter schema incompatibility errors during development, you can reduce their frequency by:
 		 * Simply deleting the existing store:
-		 [[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil]
 		 */
+//		[[NSFileManager defaultManager] removeItemAtURL:localStore error:nil];
+		 /* */
 	}
 	[coordinator unlock];
 

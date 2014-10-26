@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AZJSONUtils.h"
+
+#import <ClientAPICore/AZClientAPICore.h>
 
 #define ASSIGN_IF_NOTNULL(_property, _new_value) \
 (_property) = (!_new_value) ? (_property) : (_new_value)

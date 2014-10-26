@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 Ankh. All rights reserved.
 //
 
-#import "AZRTabProvider.h"
+#import "AZTabProvider.h"
 
-@interface AZRPreferencesTab : AZRTabProvider
+@interface AZRPreferencesTab : AZTabProvider
 
 @end

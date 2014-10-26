@@ -10,6 +10,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import <Utils/AZUtils.h>
+
 extern NSString *const kDPParameterModelName;
 extern NSString *const kDPParameterStorageFile;
 extern NSString *const kDPParameterSyncDirectory;

@@ -13,8 +13,8 @@
 
 #import "AZRTabsCommons.h"
 
-@interface AZRAppDelegate () <AZRTabsGroupDelegate> {
-	AZRTabsGroup *tabs;
+@interface AZRAppDelegate () <AZTabsGroupDelegate> {
+	AZTabsGroup *tabs;
 }
 
 @property (weak) IBOutlet NSToolbar *tbToolbar;
@@ -33,7 +33,7 @@
 	[AZDataProxyContainer initInstance:storage];
 	[storage subscribeForUpdateNotifications:self selector:@selector(synkNotification:)];
 
-	tabs = [[AZRTabsGroup alloc] initWithTabView:self.tvTabs];
+	tabs = [[AZTabsGroup alloc] initWithTabView:self.tvTabs];
 	[tabs registerTab:[AZRLoginTab class]];
 	[tabs registerTab:[AZRUpdatesTab class]];
 	[tabs registerTab:[AZRVersionsTab class]];
@@ -54,7 +54,7 @@
 	return nil;
 }
 
-- (BOOL) tabGroup:(AZRTabsGroup *)tabGroup navigateTo:(AZRTabProvider *)tab {
+- (BOOL) tabGroup:(AZTabsGroup *)tabGroup navigateTo:(AZTabProvider *)tab {
 	NSToolbarItem *navTo = [self toolbar:self.tbToolbar itemWithIdentifier:[tab tabIdentifier]];
 	if (navTo)
 		[navTo setEnabled:NO];
@@ -62,7 +62,7 @@
 	return YES;
 }
 
-- (void) tabGroup:(AZRTabsGroup *)tabGroup navigatedTo:(AZRTabProvider *)tab {
+- (void) tabGroup:(AZTabsGroup *)tabGroup navigatedTo:(AZTabProvider *)tab {
 	NSToolbarItem *navTo = [self toolbar:self.tbToolbar itemWithIdentifier:[tab tabIdentifier]];
 	if (navTo)
 		[navTo setEnabled:YES];
@@ -79,6 +79,10 @@
 
 - (IBAction)showPreferences:(id)sender {
 	[tabs navigateTo:AZRUIDPreferencesTab withNavData:nil];
+}
+
+- (IBAction)actionShowLoginTab:(id)sender {
+	[tabs navigateTo:AZRUIDLoginTab withNavData:@(YES)];
 }
 
 // Performs the save action for the application, which is to send the save: message to the application's managed object context. Any encountered errors are presented to the user.
