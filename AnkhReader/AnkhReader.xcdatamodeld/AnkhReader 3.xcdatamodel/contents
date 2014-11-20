@@ -3,7 +3,7 @@
     <entity name="Author" representedClassName="AZRAuthor" parentEntity="Entity" syncable="YES">
         <attribute name="fio" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="freq" optional="YES" attributeType="Decimal" defaultValueString="0" syncable="YES"/>
-        <attribute name="link" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="link" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="updated" optional="YES" attributeType="Decimal" defaultValueString="0" syncable="YES"/>
         <relationship name="groups" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Group" inverseName="author" inverseEntity="Group" syncable="YES"/>
         <relationship name="pages" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Page" inverseName="author" inverseEntity="Page" syncable="YES"/>
@@ -46,7 +46,7 @@
     </entity>
     <entity name="User" representedClassName="AZRUser" parentEntity="Entity" syncable="YES">
         <attribute name="acl" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="nickname" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="nickname" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
         <element name="Author" positionX="0" positionY="0" width="0" height="0"/>

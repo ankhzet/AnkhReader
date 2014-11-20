@@ -8,9 +8,12 @@
 
 #import "AZREntities.h"
 
-@implementation AZRGroup
-@synthesize descr, inlined = _inlined, title = _title;
-@dynamic author, pages, updates;
+@implementation AZRGroup {
+	NSString *_title;
+}
+
+@synthesize inlined = _inlined;
+@dynamic title, descr, author, pages, updates;
 
 - (void) setTitle:(NSString *)t {
 	NSRange r = [t rangeOfString:@"@"];
@@ -19,6 +22,10 @@
 		t = [t substringFromIndex:1];
 
 	_title = t;
+}
+
+- (NSString *) title {
+	return _title;
 }
 
 + (NSString *) type {

@@ -11,7 +11,8 @@
 #import "AZDataProxyContainer.h"
 
 @implementation AZREntity
-@synthesize registry = _registry, uid;
+@dynamic uid;
+@synthesize registry = _registry;
 
 + (NSString *) type {
 	return nil;

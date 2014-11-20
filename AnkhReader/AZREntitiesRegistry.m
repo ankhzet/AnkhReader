@@ -9,8 +9,10 @@
 #import "AZREntitiesRegistry.h"
 #import "AZREntity.h"
 
+#import "AZDataProxyContainer.h"
+
 @implementation AZREntitiesRegistry {
-	NSMutableDictionary *registry;
+//	NSMutableDictionary *registry;
 }
 
 + (id) getInstance {
@@ -27,12 +29,46 @@
 	if (!(self = [super init]))
 		return self;
 
-	registry = [NSMutableDictionary dictionary];
+//	registry = [NSMutableDictionary dictionary];
 	return self;
 }
 
+- (id) fetch:(NSString *)type entity:(NSNumber *)uid {
+	type = [type capitalizedString];
+	NSManagedObjectContext *context = [[AZDataProxyContainer getInstance] managedObjectContext];
+
+	NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+	NSEntityDescription *entity = [NSEntityDescription entityForName:type
+																						inManagedObjectContext:context];
+	[fetchRequest setEntity:entity];
+
+	if (uid) {
+		NSPredicate *predicate = [NSPredicate predicateWithFormat:@"uid = %@",uid];
+
+		[fetchRequest setPredicate:predicate];
+
+		[fetchRequest setFetchLimit:1];
+	}
+
+	NSError *_error = nil;
+	NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&_error];
+	if (fetchedObjects == nil) {
+		// Handle the error
+		return nil;
+	}
+
+	if (uid)
+		return [fetchedObjects lastObject];
+
+	NSMutableDictionary *fetch = [NSMutableDictionary dictionaryWithCapacity:[fetchedObjects count]];
+	for (AZREntity *entity in fetchedObjects)
+		fetch[entity.uid] = entity;
+
+	return fetch;
+}
+
 - (id) hasEntity:(NSNumber *)uid withType:(NSString *)type {
-	return registry[type] ? registry[type][uid] : nil;
+	return [self fetch:type entity:uid];//registry[type] ? registry[type][uid] : nil;
 }
 
 - (id) registerEntity:(AZREntity *)entity {
@@ -42,15 +78,15 @@
 	if (old)
 		return old;
 
-	NSMutableDictionary *entities = registry[entityType] ? registry[entityType] : (registry[entityType] = [NSMutableDictionary dictionary]);
-
-	entities[entity.uid] = entity;
+//	NSMutableDictionary *entities = registry[entityType] ? registry[entityType] : (registry[entityType] = [NSMutableDictionary dictionary]);
+//
+//	entities[entity.uid] = entity;
 	entity.registry = self;
 	return entity;
 }
 
 - (NSDictionary *) entitiesOfType:(NSString *)entityType {
-	return registry[entityType];
+	return [self fetch:entityType entity:nil];//registry[entityType];
 }
 
 + (id) hasEntity:(NSNumber *)uid withType:(NSString *)type {

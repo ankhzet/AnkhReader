@@ -54,7 +54,6 @@ NSString *changeNotificationName = @"CoreDataChangeNotification";
  @return Yes, if processed succesfully. No, if synkchronization unavailable.
  */
 -(BOOL) performSynkIfRequiredFromRemote:(BOOL)fromRemote withChanges:(NSDictionary *)changes {
-	NSLog(@"%s", __PRETTY_FUNCTION__);
 	if (![self synkable])
 		return NO;
 

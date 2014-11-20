@@ -12,7 +12,7 @@
 #import "AZRPage.h"
 
 @implementation AZRPage
-@synthesize link, updated, size, title, descr;
+@dynamic link, updated, size, title, descr;
 @dynamic author, group, versions, updates;
 
 + (NSString *) type {

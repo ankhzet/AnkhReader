@@ -12,7 +12,7 @@
 #import <Utils/AZUtils.h>
 
 //#define API_ACTION_BASE_URL @"http://ankhzet.esy.es/api/client/"
-#define API_ACTION_BASE_URL @"http://ankhzet.ua/api/client/"
+#define API_ACTION_BASE_URL @"%@/api/client/"
 
 
 #define PREF_SAVE_STR(_string, _pref_key) \
@@ -31,7 +31,10 @@
 	({id value = [[NSUserDefaults standardUserDefaults] stringForKey:(_key)]; (value != nil) ? value : @"";})
 
 #define PREF_BOOL(_key)\
-	({[[NSUserDefaults standardUserDefaults] boolForKey:(_key)];})
+({[[NSUserDefaults standardUserDefaults] boolForKey:(_key)];})
+
+#define PREF_UI_BOOL(_key)\
+({PREF_BOOL(_key) ? NSOnState: NSOffState;})
 
 
 
@@ -44,5 +47,6 @@
 #define DEF_USER_PASSWORD @"user.password"
 
 #define DEF_UI_GROUP_PAGES @"ui.group_pages"
+#define DEF_UI_HIDE_RENAMED @"ui.updates_hide_renamed"
 
 #endif

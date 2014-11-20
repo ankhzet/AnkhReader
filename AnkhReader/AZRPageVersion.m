@@ -10,7 +10,7 @@
 #import "AZREntities.h"
 
 @implementation AZRPageVersion
-@synthesize zipped, timestamp, size;
+@dynamic zipped, timestamp, size;
 @dynamic page;
 
 + (NSString *) type {

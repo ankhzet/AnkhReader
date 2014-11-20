@@ -10,7 +10,7 @@
 #import "AZREntitiesRegistry.h"
 
 @implementation AZRUser
-@synthesize nickname, acl;
+@dynamic nickname, acl;
 
 + (NSString *) type {
 	static NSString *const UserTypeIdentifier = @"user";

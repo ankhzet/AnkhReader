@@ -10,7 +10,7 @@
 #import "AZREntitiesRegistry.h"
 
 @implementation AZRAuthor
-@synthesize fio, link, freq, updated;
+@dynamic fio, link, freq, updated;
 @dynamic groups, pages, updates;
 
 + (NSString *) type {

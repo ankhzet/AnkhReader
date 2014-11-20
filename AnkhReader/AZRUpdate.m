@@ -9,7 +9,7 @@
 #import "AZREntities.h"
 
 @implementation AZRUpdate
-@synthesize kind, value, pub, delta;
+@dynamic kind, value, pub, delta;
 @dynamic author, group, page;
 
 + (NSString *) type {

@@ -195,6 +195,7 @@
 		0AB3990A19ECB9AA00BBE2F4 /* AZJSONRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZJSONRequest.m; sourceTree = "<group>"; };
 		0AB3990B19ECB9AA00BBE2F4 /* AZJSONUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZJSONUtils.h; sourceTree = "<group>"; };
 		0AB3990C19ECB9AA00BBE2F4 /* AZJSONUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZJSONUtils.m; sourceTree = "<group>"; };
+		0ACFF9B91A1E30860086B104 /* AnkhReader 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AnkhReader 3.xcdatamodel"; sourceTree = "<group>"; };
 		0AF1C0CE197DE7B600798532 /* AZRGroupTableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRGroupTableCellView.h; sourceTree = "<group>"; };
 		0AF1C0CF197DE7B600798532 /* AZRGroupTableCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRGroupTableCellView.m; sourceTree = "<group>"; };
 		0AFC9E2418E220520050C53F /* tabVersions.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = tabVersions.xib; sourceTree = "<group>"; };
@@ -951,10 +952,11 @@
 		0A595090197C370C00B9F60D /* AnkhReader.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				0ACFF9B91A1E30860086B104 /* AnkhReader 3.xcdatamodel */,
 				0A842C4B18E131BE00AC2701 /* AnkhReader 2.xcdatamodel */,
 				0A595091197C370C00B9F60D /* AnkhReader.xcdatamodel */,
 			);
-			currentVersion = 0A842C4B18E131BE00AC2701 /* AnkhReader 2.xcdatamodel */;
+			currentVersion = 0ACFF9B91A1E30860086B104 /* AnkhReader 3.xcdatamodel */;
 			path = AnkhReader.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
