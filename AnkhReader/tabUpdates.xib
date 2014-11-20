@@ -7,8 +7,8 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="AZRUpdatesTab">
             <connections>
-                <outlet property="authorsTableView" destination="4JR-gz-led" id="yLC-FT-pnw"/>
-                <outlet property="outlineView" destination="sqv-Qx-d6J" id="08C-SL-aWM"/>
+                <outlet property="ovUpdates" destination="sqv-Qx-d6J" id="Rqy-tW-ny9"/>
+                <outlet property="tvAuthors" destination="4JR-gz-led" id="HQF-rv-26H"/>
                 <outlet property="view" destination="yJC-h7-WvE" id="yzz-Rr-6sm"/>
             </connections>
         </customObject>
@@ -25,7 +25,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="315" height="334"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnSelection="YES" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="4JR-gz-led">
+                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="4JR-gz-led">
                                 <rect key="frame" x="0.0" y="0.0" width="315" height="334"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <size key="intercellSpacing" width="3" height="2"/>
@@ -52,9 +52,13 @@
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSActionTemplate" id="ykH-Le-Yli"/>
                                                     </imageView>
-                                                    <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kKe-cr-j61">
+                                                    <textField wantsLayer="YES" focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kKe-cr-j61">
                                                         <rect key="frame" x="21" y="22" width="291" height="20"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                                        <shadow key="shadow" blurRadius="1">
+                                                            <size key="offset" width="0.0" height="1"/>
+                                                            <color key="color" red="0.83643574617346939" green="0.83643574617346939" blue="0.83643574617346939" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </shadow>
                                                         <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" focusRingType="none" title="Author Name and Surname and can be very Long" id="rg8-Fj-Ae9">
                                                             <font key="font" size="14" name="Tahoma-Bold"/>
                                                             <color key="textColor" red="0.12549020350000001" green="0.26274511220000002" blue="0.38823533059999998" alpha="1" colorSpace="deviceRGB"/>
@@ -66,7 +70,7 @@
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" title="/a/author_n_a" id="xNx-TI-zL9">
                                                             <font key="font" size="11" name="LucidaGrande"/>
-                                                            <color key="textColor" red="0.50989718260000005" green="0.50989718260000005" blue="0.50989718260000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="textColor" red="0.35646524234693877" green="0.35646524234693877" blue="0.35646524234693877" alpha="1" colorSpace="calibratedRGB"/>
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                     </textField>
@@ -95,6 +99,10 @@
                                         </prototypeCellViews>
                                     </tableColumn>
                                 </tableColumns>
+                                <connections>
+                                    <outlet property="dataSource" destination="hNP-k9-dW8" id="BA7-Yu-Lhw"/>
+                                    <outlet property="delegate" destination="hNP-k9-dW8" id="qsR-dM-d7G"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -112,14 +120,14 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                 </scrollView>
-                <scrollView autohidesScrollers="YES" horizontalLineScroll="41" horizontalPageScroll="10" verticalLineScroll="41" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IQD-bS-CfL">
+                <scrollView autohidesScrollers="YES" horizontalLineScroll="17" horizontalPageScroll="10" verticalLineScroll="17" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IQD-bS-CfL">
                     <rect key="frame" x="315" y="-1" width="413" height="336"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <clipView key="contentView" id="hfH-mb-UV6">
                         <rect key="frame" x="1" y="1" width="411" height="334"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnResizing="NO" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" rowHeight="41" rowSizeStyle="automatic" viewBased="YES" indentationMarkerFollowsCell="NO" autoresizesOutlineColumn="YES" outlineTableColumn="q5O-5b-3h2" id="sqv-Qx-d6J">
+                            <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnResizing="NO" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" indentationMarkerFollowsCell="NO" autoresizesOutlineColumn="YES" outlineTableColumn="q5O-5b-3h2" id="sqv-Qx-d6J">
                                 <rect key="frame" x="0.0" y="0.0" width="411" height="334"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <color key="backgroundColor" red="0.91372555489999996" green="0.91372555489999996" blue="0.91372555489999996" alpha="1" colorSpace="deviceRGB"/>
@@ -292,6 +300,10 @@
                                         </prototypeCellViews>
                                     </tableColumn>
                                 </tableColumns>
+                                <connections>
+                                    <outlet property="dataSource" destination="lsx-bp-fwb" id="BNJ-98-CuO"/>
+                                    <outlet property="delegate" destination="lsx-bp-fwb" id="HrC-ft-Sdf"/>
+                                </connections>
                             </outlineView>
                         </subviews>
                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -319,6 +331,8 @@
                 <constraint firstItem="IQD-bS-CfL" firstAttribute="top" secondItem="yJC-h7-WvE" secondAttribute="top" constant="-1" id="yIK-NY-yVZ"/>
             </constraints>
         </view>
+        <customObject id="hNP-k9-dW8" customClass="AZRAuthorsDataSource"/>
+        <customObject id="lsx-bp-fwb" customClass="AZRUpdatesDataSource"/>
     </objects>
     <resources>
         <image name="NSActionTemplate" width="15" height="15"/>

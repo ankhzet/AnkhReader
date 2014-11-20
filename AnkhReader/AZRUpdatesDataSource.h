@@ -20,6 +20,7 @@
 @property (nonatomic) id<AZRUpdatesDataSourceDelegate> delegate;
 
 @property (nonatomic) BOOL groupped;
+@property (nonatomic) BOOL withRenamed;
 
 - (void) filterByAuthor:(NSNumber *)authorID;
 

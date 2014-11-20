@@ -10,7 +10,7 @@
 
 @interface AZRUpdatesTab : AZTabProvider
 
-@property (weak) IBOutlet NSTableView *authorsTableView;
-@property (weak) IBOutlet NSOutlineView *outlineView;
+@property (weak) IBOutlet NSTableView *tvAuthors;
+@property (weak) IBOutlet NSOutlineView *ovUpdates;
 
 @end

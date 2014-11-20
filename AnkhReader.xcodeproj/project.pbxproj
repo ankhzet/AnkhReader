@@ -30,6 +30,7 @@
 		0A5950CC197C946900B9F60D /* AZRAuthorsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A5950CB197C946900B9F60D /* AZRAuthorsDataSource.m */; };
 		0A5950CF197CA22700B9F60D /* AZRAuthorTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A5950CE197CA22700B9F60D /* AZRAuthorTableCellView.m */; };
 		0A5950D4197CD9A400B9F60D /* AZRAuthor.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A5950D3197CD9A400B9F60D /* AZRAuthor.m */; };
+		0A6000381A1A24F100065890 /* AZRSyncedScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6000371A1A24F100065890 /* AZRSyncedScrollView.m */; };
 		0A7A8668197D4A7300E80B98 /* AZRConfigurableTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7A8667197D4A7300E80B98 /* AZRConfigurableTableCellView.m */; };
 		0A7A866B197D4CE400E80B98 /* AZRUpdatesDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7A866A197D4CE400E80B98 /* AZRUpdatesDataSource.m */; };
 		0A7A866E197D5A8C00E80B98 /* AZRUpdateTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7A866D197D5A8C00E80B98 /* AZRUpdateTableCellView.m */; };
@@ -65,6 +66,7 @@
 		0AB3991119ECB9AA00BBE2F4 /* AZJSONAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB3990819ECB9AA00BBE2F4 /* AZJSONAPI.m */; };
 		0AB3991219ECB9AA00BBE2F4 /* AZJSONRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB3990A19ECB9AA00BBE2F4 /* AZJSONRequest.m */; };
 		0AB3991319ECB9AA00BBE2F4 /* AZJSONUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB3990C19ECB9AA00BBE2F4 /* AZJSONUtils.m */; };
+		0ACFF9B81A1E29020086B104 /* AZRAuthor+AnkhUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ACFF9B71A1E29020086B104 /* AZRAuthor+AnkhUtils.m */; };
 		0ACFF9BC1A1E39480086B104 /* AZRAnkhAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ACFF9BB1A1E39480086B104 /* AZRAnkhAPI.m */; };
 		0AF1C0D0197DE7B600798532 /* AZRGroupTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AF1C0CF197DE7B600798532 /* AZRGroupTableCellView.m */; };
 		0AFC9E2518E220520050C53F /* tabVersions.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AFC9E2418E220520050C53F /* tabVersions.xib */; };
@@ -122,6 +124,8 @@
 		0A5950CE197CA22700B9F60D /* AZRAuthorTableCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRAuthorTableCellView.m; sourceTree = "<group>"; };
 		0A5950D2197CD9A400B9F60D /* AZRAuthor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRAuthor.h; sourceTree = "<group>"; };
 		0A5950D3197CD9A400B9F60D /* AZRAuthor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRAuthor.m; sourceTree = "<group>"; };
+		0A6000361A1A24F100065890 /* AZRSyncedScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRSyncedScrollView.h; sourceTree = "<group>"; };
+		0A6000371A1A24F100065890 /* AZRSyncedScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRSyncedScrollView.m; sourceTree = "<group>"; };
 		0A7A8666197D4A7300E80B98 /* AZRConfigurableTableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRConfigurableTableCellView.h; sourceTree = "<group>"; };
 		0A7A8667197D4A7300E80B98 /* AZRConfigurableTableCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRConfigurableTableCellView.m; sourceTree = "<group>"; };
 		0A7A8669197D4CE400E80B98 /* AZRUpdatesDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRUpdatesDataSource.h; sourceTree = "<group>"; };
@@ -196,6 +200,8 @@
 		0AB3990A19ECB9AA00BBE2F4 /* AZJSONRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZJSONRequest.m; sourceTree = "<group>"; };
 		0AB3990B19ECB9AA00BBE2F4 /* AZJSONUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZJSONUtils.h; sourceTree = "<group>"; };
 		0AB3990C19ECB9AA00BBE2F4 /* AZJSONUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZJSONUtils.m; sourceTree = "<group>"; };
+		0ACFF9B61A1E29020086B104 /* AZRAuthor+AnkhUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AZRAuthor+AnkhUtils.h"; sourceTree = "<group>"; };
+		0ACFF9B71A1E29020086B104 /* AZRAuthor+AnkhUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AZRAuthor+AnkhUtils.m"; sourceTree = "<group>"; };
 		0ACFF9B91A1E30860086B104 /* AnkhReader 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AnkhReader 3.xcdatamodel"; sourceTree = "<group>"; };
 		0ACFF9BA1A1E39480086B104 /* AZRAnkhAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRAnkhAPI.h; sourceTree = "<group>"; };
 		0ACFF9BB1A1E39480086B104 /* AZRAnkhAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRAnkhAPI.m; sourceTree = "<group>"; };
@@ -391,6 +397,8 @@
 				0AAF342318E61ECC00424B4C /* AZRUser.m */,
 				0A5950D2197CD9A400B9F60D /* AZRAuthor.h */,
 				0A5950D3197CD9A400B9F60D /* AZRAuthor.m */,
+				0ACFF9B61A1E29020086B104 /* AZRAuthor+AnkhUtils.h */,
+				0ACFF9B71A1E29020086B104 /* AZRAuthor+AnkhUtils.m */,
 				0A7A8679197D644B00E80B98 /* AZRPage.h */,
 				0A7A867A197D644B00E80B98 /* AZRPage.m */,
 				0AAF342918E6A43D00424B4C /* AZRPageVersion.h */,
@@ -420,6 +428,8 @@
 				0A272C8318E2035F008070DE /* tabUpdates.xib */,
 				0AFC9E2418E220520050C53F /* tabVersions.xib */,
 				0AAF343218E6EA9C00424B4C /* tabPreferences.xib */,
+				0A6000361A1A24F100065890 /* AZRSyncedScrollView.h */,
+				0A6000371A1A24F100065890 /* AZRSyncedScrollView.m */,
 				0AA05BBC19E7545800962614 /* AZRFlippedView.h */,
 				0AA05BBD19E7545800962614 /* AZRFlippedView.m */,
 			);
@@ -723,9 +733,11 @@
 				0A5950CC197C946900B9F60D /* AZRAuthorsDataSource.m in Sources */,
 				0A7A866E197D5A8C00E80B98 /* AZRUpdateTableCellView.m in Sources */,
 				0AAF342418E61ECC00424B4C /* AZRUser.m in Sources */,
+				0A6000381A1A24F100065890 /* AZRSyncedScrollView.m in Sources */,
 				0A5950B7197C387000B9F60D /* AZDataProxyContainer.m in Sources */,
 				0AAF343118E6B17600424B4C /* AZRVersionCellView.m in Sources */,
 				0A7A867E197D647B00E80B98 /* AZRGroup.m in Sources */,
+				0ACFF9B81A1E29020086B104 /* AZRAuthor+AnkhUtils.m in Sources */,
 				0AB398F919ECB98200BBE2F4 /* AZTabProvider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

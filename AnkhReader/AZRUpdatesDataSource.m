@@ -77,8 +77,6 @@
 
 - (void) filterByAuthor:(NSNumber *)authorID {
 	authorGroups = authorID ? baseAuthors[authorID] : baseAuthors;
-	if (!authorGroups)
-		authorGroups = baseAuthors;
 
 	filter = baseAuthors != authorGroups;
 }
@@ -88,6 +86,9 @@
 
 	_uPages = [NSMutableDictionary dictionary];
 	for (AZRUpdate *update in [data allValues]) {
+		if ((!self.withRenamed) && [update.kind isEqual:@(AZRUpdateKindRenamed)])
+			continue;
+
 		NSNumber *page = update.page.uid;
 		NSMutableArray *pageUpdates = _uPages[page] ? _uPages[page] : (_uPages[page] = [NSMutableArray array]);
 
@@ -129,6 +130,14 @@
 		return;
 
 	_groupped = groupped;
+	[self setData:_data];
+}
+
+- (void) setWithRenamed:(BOOL)withRenamed {
+	if (withRenamed == _withRenamed)
+		return;
+
+	_withRenamed = withRenamed;
 	[self setData:_data];
 }
 

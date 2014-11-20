@@ -63,9 +63,9 @@
 	[pagesAPI aquirePage:uid withCompletion:^(AZRPage *_page) {
 		page = _page;
 		[AZClientAPI onMain:^{
-			self.tfAuthor.stringValue = [NSString stringWithFormat:@"%@", page.author.fio];
-			self.tfGroup.stringValue = [NSString stringWithFormat:@"↳ %@", page.group.title];
-			self.tfPage.stringValue = [NSString stringWithFormat:@"↳ %@", page.title];
+			self.tfAuthor.stringValue = [NSString stringWithFormat:@"%@", [page.author.fio cvtHTMLEntities]];
+			self.tfGroup.stringValue = [NSString stringWithFormat:@"↳ %@", [page.group.title cvtHTMLEntities]];
+			self.tfPage.stringValue = [NSString stringWithFormat:@"↳ %@", [page.title cvtHTMLEntities]];
 			if (page) {
 				[self retriveVersions];
 			} else {

@@ -10,6 +10,7 @@
 #import "AZRUpdate.h"
 #import "AZRGroup.h"
 #import "AZRPage.h"
+#import "AZRUpdatesDataSource.h"
 
 @implementation AZRUpdateTableCellView {
 	NSOutlineView *outlineView;
@@ -25,7 +26,10 @@
 - (void) configureForEntity:(id)_entity inOutlineView:(NSOutlineView *)view {
 	outlineView = view;
 	entity = _entity;
-	self.tfTitle.stringValue = [[NSString stringWithFormat:@"%@", /*entity.group.title,*/ entity.page.title] cvtHTMLEntities];
+	AZRUpdatesDataSource *uds = (id)view.dataSource;
+
+	NSString *title = uds.groupped ? [NSString stringWithFormat:@"%@", entity.page.title] : [NSString stringWithFormat:@"%@: %@", entity.group.title, entity.page.title];
+	self.tfTitle.stringValue = [title cvtHTMLEntities];
 
 	BOOL hasVersions = NO;
 	BOOL isGrow = [entity.delta integerValue] > 0;

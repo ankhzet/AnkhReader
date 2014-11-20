@@ -8,6 +8,7 @@
 
 #import "AZRAuthorTableCellView.h"
 #import "AZRAuthor.h"
+#import "AZRAuthor+AnkhUtils.h"
 
 @implementation AZRAuthorTableCellView
 
@@ -16,10 +17,9 @@
 	self.tfFIO.stringValue = [entity.fio cvtHTMLEntities];
 	self.tfLink.stringValue = [entity.link cvtHTMLEntities];
 
-	NSInteger updates = [entity.updates count];
+	NSUInteger updates = [entity usefulUpdatesCount];
 	self.tfUpdates.stringValue = [@(updates) stringValue];
 	[self.tfUpdates setHidden:updates <= 0];
 }
-
 
 @end

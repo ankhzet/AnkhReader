@@ -21,7 +21,7 @@
 	if ((self.inlined = (!!r.length) && !r.location))
 		t = [t substringFromIndex:1];
 
-	_title = t;
+	_title = [t isEqualToString:@"<null>"] ? [NSString stringWithFormat:@"Deleted group: {Group@%@: (%@)}", self.uid, self.author.fio] : t;
 }
 
 - (NSString *) title {

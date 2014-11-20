@@ -658,24 +658,24 @@
                 </menuItem>
             </items>
         </menu>
-        <window title="AnkhReader" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="371">
-            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="111" y="345" width="641" height="327"/>
+        <window title="AnkhReader" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" frameAutosaveName="AnkhReader_AS" animationBehavior="default" id="371">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" texturedBackground="YES"/>
+            <windowCollectionBehavior key="collectionBehavior" fullScreenPrimary="YES"/>
+            <rect key="contentRect" x="66" y="264" width="900" height="450"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1280" height="778"/>
             <value key="minSize" type="size" width="640" height="320"/>
             <view key="contentView" id="372">
-                <rect key="frame" x="0.0" y="0.0" width="641" height="327"/>
+                <rect key="frame" x="0.0" y="0.0" width="900" height="450"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
                     <tabView type="noTabsNoBorder" translatesAutoresizingMaskIntoConstraints="NO" id="NGD-Se-LKY">
-                        <rect key="frame" x="0.0" y="0.0" width="642" height="327"/>
+                        <rect key="frame" x="0.0" y="0.0" width="901" height="450"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <font key="font" metaFont="system"/>
                         <tabViewItems>
                             <tabViewItem label="Dummy" identifier="" id="6kb-OP-kbx">
                                 <view key="view" id="BWM-sV-YhM">
-                                    <rect key="frame" x="0.0" y="0.0" width="642" height="327"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="901" height="450"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
                             </tabViewItem>

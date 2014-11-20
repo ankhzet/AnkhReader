@@ -8,15 +8,22 @@
 
 #import "AZRPreferencesTab.h"
 #import "AZRTabsCommons.h"
+#import "AZRSyncedScrollView.h"
 
+@interface AZRPreferencesTab () <AZRSyncedScrollViewProtocol>
 
-@interface AZRPreferencesTab ()
 @property (weak) IBOutlet NSTextField *tfServerAddress;
+
 @property (weak) IBOutlet NSTextField *tfUserLogin;
 @property (weak) IBOutlet NSSecureTextField *tfUserPassword;
 @property (weak) IBOutlet NSButton *cbLoginAsGuest;
 @property (weak) IBOutlet NSButton *cbLoginAutomatically;
+
 @property (weak) IBOutlet NSButton *cbUIGroupPages;
+@property (weak) IBOutlet NSButton *cbUIHideRenamed;
+
+@property (weak) IBOutlet NSLayoutConstraint *lcFloatWidth;
+@property (weak) IBOutlet AZRSyncedScrollView *ssvScrollView;
 
 @end
 
@@ -26,7 +33,9 @@
 	return AZRUIDPreferencesTab;
 }
 
-- (void) show {
+- (void) updateContents {
+	self.ssvScrollView.delegate = self;
+
 	// server
 	self.tfServerAddress.stringValue = PREF_STR(DEF_SERVER_ADDRESS);
 
@@ -37,9 +46,13 @@
 	[self setLoginAsGuest:PREF_BOOL(DEF_USER_LOGIN_AS_GUEST)];
 
 	// ui
-	BOOL groupPages = PREF_BOOL(DEF_UI_GROUP_PAGES);
+	[self.cbUIGroupPages setState:PREF_UI_BOOL(DEF_UI_GROUP_PAGES)];
+	[self.cbUIHideRenamed setState:PREF_UI_BOOL(DEF_UI_HIDE_RENAMED)];
+}
 
-	[self.cbUIGroupPages setState:groupPages ? NSOnState : NSOffState];
+- (void) frame:(NSScrollView *)view sizeChanged:(NSSize)size {
+	self.lcFloatWidth.constant = size.width;
+//	self.lcFloatHeight.constant = size.height;
 }
 
 - (BOOL) loginAsGuest {
@@ -89,6 +102,10 @@
 
 - (IBAction)actionUIGroupPages:(id)sender {
 	PREF_SAVE_UI_BOOL(self.cbUIGroupPages, DEF_UI_GROUP_PAGES);
+}
+
+- (IBAction)actionUIHideRenamedChanged:(id)sender {
+	PREF_SAVE_UI_BOOL(self.cbUIHideRenamed, DEF_UI_HIDE_RENAMED);
 }
 
 @end
