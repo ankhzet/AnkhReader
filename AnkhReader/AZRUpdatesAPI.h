@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Ankh. All rights reserved.
 //
 
-#import "AZJSONAPI.h"
+#import "AZRAnkhAPI.h"
 
-@interface AZRUpdatesAPI : AZJSONAPI
+@interface AZRUpdatesAPI : AZRAnkhAPI
 
 - (AZHTTPRequest *) aquireUpdates:(NSDictionary *)params withCompletion:(void(^)(id data))block;
 

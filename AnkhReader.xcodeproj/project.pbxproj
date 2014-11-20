@@ -65,6 +65,7 @@
 		0AB3991119ECB9AA00BBE2F4 /* AZJSONAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB3990819ECB9AA00BBE2F4 /* AZJSONAPI.m */; };
 		0AB3991219ECB9AA00BBE2F4 /* AZJSONRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB3990A19ECB9AA00BBE2F4 /* AZJSONRequest.m */; };
 		0AB3991319ECB9AA00BBE2F4 /* AZJSONUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB3990C19ECB9AA00BBE2F4 /* AZJSONUtils.m */; };
+		0ACFF9BC1A1E39480086B104 /* AZRAnkhAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ACFF9BB1A1E39480086B104 /* AZRAnkhAPI.m */; };
 		0AF1C0D0197DE7B600798532 /* AZRGroupTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AF1C0CF197DE7B600798532 /* AZRGroupTableCellView.m */; };
 		0AFC9E2518E220520050C53F /* tabVersions.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AFC9E2418E220520050C53F /* tabVersions.xib */; };
 		859295A3066B427A83AC8650 /* libPods-AnkhReaderTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21C8C4FB766A48C09D5DA8C2 /* libPods-AnkhReaderTests.a */; };
@@ -196,6 +197,8 @@
 		0AB3990B19ECB9AA00BBE2F4 /* AZJSONUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZJSONUtils.h; sourceTree = "<group>"; };
 		0AB3990C19ECB9AA00BBE2F4 /* AZJSONUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZJSONUtils.m; sourceTree = "<group>"; };
 		0ACFF9B91A1E30860086B104 /* AnkhReader 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AnkhReader 3.xcdatamodel"; sourceTree = "<group>"; };
+		0ACFF9BA1A1E39480086B104 /* AZRAnkhAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRAnkhAPI.h; sourceTree = "<group>"; };
+		0ACFF9BB1A1E39480086B104 /* AZRAnkhAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRAnkhAPI.m; sourceTree = "<group>"; };
 		0AF1C0CE197DE7B600798532 /* AZRGroupTableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRGroupTableCellView.h; sourceTree = "<group>"; };
 		0AF1C0CF197DE7B600798532 /* AZRGroupTableCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRGroupTableCellView.m; sourceTree = "<group>"; };
 		0AFC9E2418E220520050C53F /* tabVersions.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = tabVersions.xib; sourceTree = "<group>"; };
@@ -435,6 +438,8 @@
 		0AAF33FD18E5E71300424B4C /* Actions */ = {
 			isa = PBXGroup;
 			children = (
+				0ACFF9BA1A1E39480086B104 /* AZRAnkhAPI.h */,
+				0ACFF9BB1A1E39480086B104 /* AZRAnkhAPI.m */,
 				0AAF33FE18E5E73300424B4C /* AZRUserAPI.h */,
 				0AAF33FF18E5E73300424B4C /* AZRUserAPI.m */,
 				0AAF340118E5E74500424B4C /* AZRAuthorsAPI.h */,
@@ -688,6 +693,7 @@
 				0A7A8668197D4A7300E80B98 /* AZRConfigurableTableCellView.m in Sources */,
 				0A40065918E376F200746C2D /* AZRVersionsTab.m in Sources */,
 				0AA05BBE19E7545800962614 /* AZRFlippedView.m in Sources */,
+				0ACFF9BC1A1E39480086B104 /* AZRAnkhAPI.m in Sources */,
 				0AB3990E19ECB9AA00BBE2F4 /* AZClientAPI.m in Sources */,
 				0AB3991219ECB9AA00BBE2F4 /* AZJSONRequest.m in Sources */,
 				0A5950B8197C387000B9F60D /* AZSynkEnabledStorage.m in Sources */,

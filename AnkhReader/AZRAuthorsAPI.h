@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Ankh. All rights reserved.
 //
 
-#import "AZJSONAPI.h"
+#import "AZRAnkhAPI.h"
 
-@interface AZRAuthorsAPI : AZJSONAPI
+@interface AZRAuthorsAPI : AZRAnkhAPI
 
 - (AZHTTPRequest *) aquireAuthors:(NSDictionary *)params withCompletion:(void(^)(id data))block;
 
