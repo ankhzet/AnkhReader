@@ -23,6 +23,8 @@
 @property (nonatomic, retain) NSNumber *uid;
 
 + (NSString *) type;
++ (NSString *) CoreDataEntityNameFromType:(NSString *)type;
+
 + (instancetype) newEntity:(NSNumber *)uid inRegistry:(AZREntitiesRegistry *)registry;
 + (instancetype) entity:(NSNumber *)uid inRegistry:(AZREntitiesRegistry *)registry;
 + (instancetype) entity:(NSNumber *)uid fromJSON:(NSDictionary *)json inRegistry:(AZREntitiesRegistry *)registry;

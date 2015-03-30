@@ -166,7 +166,7 @@
                                                     <outlet property="tfFIO" destination="sBJ-R9-VUz" id="3fx-z7-lUh"/>
                                                 </connections>
                                             </tableCellView>
-                                            <tableCellView identifier="GroupCell" wantsLayer="YES" id="r31-gW-Q50" customClass="AZRGroupTableCellView">
+                                            <tableCellView identifier="GroupCell" id="r31-gW-Q50" customClass="AZRGroupTableCellView">
                                                 <rect key="frame" x="0.0" y="21" width="411" height="23"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
@@ -181,7 +181,7 @@
                                                             <color key="color" red="0.45382161409999999" green="0.53722069299999997" blue="0.51646625239999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         </shadow>
                                                         <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" sendsActionOnEndEditing="YES" title="Group" id="egy-uc-lY7">
-                                                            <font key="font" size="12" name="Tahoma"/>
+                                                            <font key="font" size="12" name="Tahoma-Bold"/>
                                                             <color key="textColor" red="0.45382161409999999" green="0.53722069299999997" blue="0.51646625239999999" alpha="1" colorSpace="calibratedRGB"/>
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>

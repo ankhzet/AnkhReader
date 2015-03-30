@@ -21,7 +21,6 @@
 
 @interface AZRVersionsTab () {
 	AZRPage *page;
-	AZRPagesAPI *pagesAPI;
 	AZRVersionsDataSource *versions;
 }
 @property (weak) IBOutlet NSTextField *tfAuthor;
@@ -33,19 +32,11 @@
 
 @implementation AZRVersionsTab
 
-- (id)init {
-	if (!(self = [super init]))
-		return self;
-
-	pagesAPI = [[AZAPIProvider getInstance] API:[AZRPagesAPI class]];
-	return self;
-}
-
 - (NSString *) tabIdentifier {
 	return AZRUIDVersionsTab;
 }
 
-- (void) show {
+- (void) updateContents {
 	NSNumber *uid = self.navData[@0];
 	page = [[AZREntitiesRegistry getInstance] hasEntity:uid withType:[AZRPage type]];
 
@@ -60,7 +51,7 @@
 
 
 - (void) pickPage:(NSUInteger)uid {
-	[pagesAPI aquirePage:uid withCompletion:^(AZRPage *_page) {
+	[AZ_API(RPages) aquirePage:uid withCompletion:^(AZRPage *_page) {
 		page = _page;
 		[AZClientAPI onMain:^{
 			self.tfAuthor.stringValue = [NSString stringWithFormat:@"%@", [page.author.fio cvtHTMLEntities]];
@@ -77,7 +68,7 @@
 }
 
 - (void) retriveVersions {
-	[pagesAPI aquirePageVersions:page withCompletion:^(NSSet *_versions) {
+	[AZ_API(RPages) aquirePageVersions:page withCompletion:^(NSSet *_versions) {
 		[versions setOrderedData:_versions];
 		[AZClientAPI onMain:^{
 			[self.tvVersions reloadData];

@@ -6,11 +6,9 @@
 //  Copyright (c) 2014 Ankh. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
+#import "AZAppDelegate.h"
 
-@interface AZRAppDelegate : NSObject <NSApplicationDelegate>
-
-@property (assign) IBOutlet NSWindow *window;
+@interface AZRAppDelegate : AZAppDelegate
 
 - (IBAction)showUpdates:(id)sender;
 - (IBAction)showPreferences:(id)sender;

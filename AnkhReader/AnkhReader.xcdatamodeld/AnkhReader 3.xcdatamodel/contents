@@ -33,6 +33,7 @@
     <entity name="PageVersion" representedClassName="AZRPageVersion" parentEntity="Entity" syncable="YES">
         <attribute name="size" optional="YES" attributeType="Integer 64" defaultValueString="0.0" syncable="YES"/>
         <attribute name="timestamp" optional="YES" attributeType="Integer 64" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="zipped" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <relationship name="page" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Page" inverseName="versions" inverseEntity="Page" syncable="YES"/>
     </entity>
     <entity name="Update" representedClassName="AZRUpdate" parentEntity="Entity" syncable="YES">

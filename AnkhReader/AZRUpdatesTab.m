@@ -47,7 +47,7 @@
 }
 
 - (void) retriveAuthorsList {
-	[AZR_API(Authors) aquireAuthors:@{@"collumns": @"id,fio,link,time"} withCompletion:^(NSDictionary *_authors) {
+	[AZ_API(RAuthors) aquireAuthors:@{@"collumns": @"id,fio,link,time"} withCompletion:^(NSDictionary *_authors) {
 		if (authors.data == _authors) {
 			[self showAuthors:NO];
 			[self show:nil updates:nil];
@@ -60,7 +60,7 @@
 }
 
 - (void) retriveUpdates {
-	[AZR_API(Updates) aquireUpdates:@{@"newer-than":@(24 * 30),@"collumns": @"uid,kind,pageID,authorID,groupID,title,group,description,size,delta,pubdate"} withCompletion:^(NSDictionary *_updates) {
+	[AZ_API(RUpdates) aquireUpdates:@{@"newer-than":@(24 * 30),@"collumns": @"uid,kind,pageID,authorID,groupID,title,group,description,size,delta,pubdate"} withCompletion:^(NSDictionary *_updates) {
 		if (updates.data == _updates)
 			return;
 
@@ -71,33 +71,34 @@
 }
 
 - (void) show:(NSNumber *)authorToFilter updates:(NSDictionary *)updatesDict {
-	dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-		NSDictionary *dict = updatesDict ? updatesDict : updates.data;
+	[self delayed:@"show-updates" withBlock:^{
+		dispatch_sync_at_background(^{
+			NSDictionary *dict = updatesDict ? updatesDict : updates.data;
 
-		updates.data = nil;
-		[updates setGroupped:PREF_BOOL(DEF_UI_GROUP_PAGES)];
-		[updates setWithRenamed:!PREF_BOOL(DEF_UI_HIDE_RENAMED)];
+			updates.data = nil;
+			[updates setGroupped:PREF_BOOL(DEF_UI_GROUP_PAGES)];
+			[updates setWithRenamed:!PREF_BOOL(DEF_UI_HIDE_RENAMED)];
 
-		updates.data = dict;
+			updates.data = dict;
 
-		[updates filterByAuthor:authorToFilter];
+			[updates filterByAuthor:authorToFilter];
 
-
-		[AZClientAPI onMain:^{
-			[self.ovUpdates reloadData];
-			[self.ovUpdates expandItem:nil expandChildren:YES];
-		} synk:NO];
-	});
+			dispatch_async_at_main(^{
+				[self.ovUpdates reloadData];
+				[self.ovUpdates expandItem:nil expandChildren:YES];
+			});
+		});
+	}];
 }
 
 - (void) showAuthors:(BOOL)retriveUpdates {
-	[AZClientAPI onMain:^{
+	[self delayed:@"show-authors" withBlock:^{
 		[authors rearrangeBy:AUTHOR_UPDATES_COLLUMN];
 		[self.tvAuthors reloadData];
 
 		if (retriveUpdates)
 			[self retriveUpdates];
-	} synk:NO];
+	}];
 }
 
 - (void) objectSelected:(id)object {

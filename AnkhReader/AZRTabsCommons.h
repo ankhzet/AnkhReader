@@ -14,12 +14,14 @@
 static NSString *AZRUIDLoginTab = @"login";
 static NSString *AZRUIDUpdatesTab = @"updates";
 static NSString *AZRUIDVersionsTab = @"versions";
+static NSString *AZRUIDReaderTab = @"reader";
 static NSString *AZRUIDPreferencesTab = @"preferences";
 
 #import "AZRLoginTab.h"
 #import "AZRPreferencesTab.h"
 #import "AZRUpdatesTab.h"
 #import "AZRVersionsTab.h"
+#import "AZRReaderTab.h"
 
 
 #endif

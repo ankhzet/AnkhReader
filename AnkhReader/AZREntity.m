@@ -19,7 +19,11 @@
 }
 
 + (NSString *) CoreDataEntityName {
-	return [[[[self type]
+	return [self CoreDataEntityNameFromType:[self type]];
+}
+
++ (NSString *) CoreDataEntityNameFromType:(NSString *)type {
+	return [[[type
 						stringByReplacingOccurrencesOfString:@"-" withString:@" "]
 					 capitalizedString]
 					stringByReplacingOccurrencesOfString:@" " withString:@""];

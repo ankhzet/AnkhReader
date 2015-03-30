@@ -34,7 +34,8 @@
 }
 
 - (id) fetch:(NSString *)type entity:(NSNumber *)uid {
-	type = [type capitalizedString];
+	type = [AZREntity CoreDataEntityNameFromType:type];
+
 	NSManagedObjectContext *context = [[AZDataProxyContainer getInstance] managedObjectContext];
 
 	NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
@@ -50,12 +51,16 @@
 		[fetchRequest setFetchLimit:1];
 	}
 
-	NSError *_error = nil;
-	NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&_error];
-	if (fetchedObjects == nil) {
-		// Handle the error
-		return nil;
-	}
+	__block NSArray *fetchedObjects;
+
+	[context performBlockAndWait:^{
+		NSError *_error = nil;
+		fetchedObjects = [context executeFetchRequest:fetchRequest error:&_error];
+		if (fetchedObjects == nil) {
+			// Handle the error
+		}
+		
+	}];
 
 	if (uid)
 		return [fetchedObjects lastObject];

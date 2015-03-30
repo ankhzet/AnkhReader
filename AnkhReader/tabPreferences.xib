@@ -33,14 +33,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="J1n-Yp-YQW" customClass="AZRFlippedView">
-                                <rect key="frame" x="0.0" y="0.0" width="435" height="322"/>
+                                <rect key="frame" x="0.0" y="0.0" width="529" height="322"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <box autoresizesSubviews="NO" title="Server options" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="oNL-rg-tJI">
-                                        <rect key="frame" x="17" y="242" width="401" height="60"/>
+                                        <rect key="frame" x="17" y="242" width="495" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <view key="contentView">
-                                            <rect key="frame" x="1" y="1" width="399" height="44"/>
+                                            <rect key="frame" x="1" y="1" width="493" height="44"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="iE7-9P-INd">
@@ -53,7 +53,7 @@
                                                     </textFieldCell>
                                                 </textField>
                                                 <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0BM-Gd-xBf">
-                                                    <rect key="frame" x="176" y="12" width="205" height="22"/>
+                                                    <rect key="frame" x="176" y="12" width="299" height="22"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="22" id="eKc-dZ-2at"/>
@@ -82,14 +82,14 @@
                                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </box>
                                     <box autoresizesSubviews="NO" title="Account" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="Lmg-hi-q5I">
-                                        <rect key="frame" x="17" y="94" width="401" height="144"/>
+                                        <rect key="frame" x="17" y="94" width="495" height="144"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <view key="contentView">
-                                            <rect key="frame" x="1" y="1" width="399" height="128"/>
+                                            <rect key="frame" x="1" y="1" width="493" height="128"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <button translatesAutoresizingMaskIntoConstraints="NO" id="7jB-o9-rPG">
-                                                    <rect key="frame" x="174" y="43" width="209" height="18"/>
+                                                    <rect key="frame" x="174" y="43" width="303" height="18"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="14" id="Dyr-cY-f7F"/>
@@ -103,7 +103,7 @@
                                                     </connections>
                                                 </button>
                                                 <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DwA-Ho-JnL">
-                                                    <rect key="frame" x="176" y="99" width="205" height="22"/>
+                                                    <rect key="frame" x="176" y="99" width="299" height="22"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="22" id="NkC-bJ-kkg"/>
@@ -118,7 +118,7 @@
                                                     </connections>
                                                 </textField>
                                                 <secureTextField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hgB-R3-WbC">
-                                                    <rect key="frame" x="176" y="67" width="205" height="22"/>
+                                                    <rect key="frame" x="176" y="67" width="299" height="22"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="22" id="H6w-69-VDF"/>
@@ -160,7 +160,7 @@
                                                     </textFieldCell>
                                                 </textField>
                                                 <button translatesAutoresizingMaskIntoConstraints="NO" id="3IF-1q-uoZ">
-                                                    <rect key="frame" x="174" y="12" width="209" height="18"/>
+                                                    <rect key="frame" x="174" y="12" width="303" height="18"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="14" id="a3E-kD-hQg"/>
@@ -200,14 +200,14 @@
                                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </box>
                                     <box autoresizesSubviews="NO" verticalHuggingPriority="1" verticalCompressionResistancePriority="1" title="User interface" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="Vvf-M3-VEI">
-                                        <rect key="frame" x="17" y="16" width="401" height="74"/>
+                                        <rect key="frame" x="17" y="16" width="495" height="74"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <view key="contentView">
-                                            <rect key="frame" x="1" y="1" width="399" height="58"/>
+                                            <rect key="frame" x="1" y="1" width="493" height="58"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <button translatesAutoresizingMaskIntoConstraints="NO" id="8wQ-Qa-w9V">
-                                                    <rect key="frame" x="174" y="32" width="209" height="18"/>
+                                                    <rect key="frame" x="174" y="32" width="303" height="18"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="14" id="fJQ-Wc-8RL"/>
@@ -221,7 +221,7 @@
                                                     </connections>
                                                 </button>
                                                 <button translatesAutoresizingMaskIntoConstraints="NO" id="nce-YN-tk0">
-                                                    <rect key="frame" x="174" y="12" width="209" height="18"/>
+                                                    <rect key="frame" x="174" y="12" width="303" height="18"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="14" id="GqM-1g-AHX"/>

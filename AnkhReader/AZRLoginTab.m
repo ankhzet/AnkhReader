@@ -26,7 +26,7 @@
 	return AZRUIDLoginTab;
 }
 
-- (void) show {
+- (void) updateContents {
 	self.loggingIn = NO;
 
 	autologin = PREF_BOOL(DEF_USER_LOGIN_AUTOMATICALY);
@@ -35,14 +35,11 @@
 
 	[self setLoginAsGuest:PREF_BOOL(DEF_USER_LOGIN_AS_GUEST)];
 
-	if (autologin) {
-		double delayInSeconds = 0;//2.0;
-		dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-		dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+	if (autologin)
+		[self delayed:@"autologin" forTime:2.0 withBlock:^{
 			if (autologin && !self.loggingIn)
 				[self login:YES];
-		});
-	}
+		}];
 }
 
 - (BOOL) loginAsGuest {
@@ -84,9 +81,12 @@
 				PREF_SAVE_STR(password, DEF_USER_PASSWORD);
 			}
 
-			[AZClientAPI onMain:^{
+			dispatch_sync_at_main(^{
 				[[self tabs] navigateTo:AZRUIDUpdatesTab withNavData:user];
-			} synk:NO];
+			});
+//			[AZClientAPI onMain:^{
+//				[[self tabs] navigateTo:AZRUIDUpdatesTab withNavData:user];
+//			} synk:NO];
 			return;
 		} else
 			[AZUtils notifyErrorMsg:@"Login failed"];

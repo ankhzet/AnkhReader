@@ -727,8 +727,8 @@
         </window>
         <customObject id="494" customClass="AZRAppDelegate">
             <connections>
-                <outlet property="tbToolbar" destination="yD8-JS-acU" id="TSt-zr-Wev"/>
-                <outlet property="tvTabs" destination="NGD-Se-LKY" id="NjM-zY-X3K"/>
+                <outlet property="tbToolBar" destination="yD8-JS-acU" id="SPC-uW-XvI"/>
+                <outlet property="tvTabView" destination="NGD-Se-LKY" id="Qir-eT-Cuk"/>
                 <outlet property="window" destination="371" id="532"/>
             </connections>
         </customObject>
